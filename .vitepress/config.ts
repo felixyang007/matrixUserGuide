@@ -38,7 +38,7 @@ export default {
   lastUpdated: true, // 是否显示最后修改时间
   ignoreDeadLinks: true,
   head: [
-    ['link', { rel: 'icon', href: 'https://raw.githubusercontent.com/felixyang007/matrixUserGuide/main/.vitepress/theme/assets/public/favicon.ico' }],
+    ['link', { rel: 'icon', href: 'https://raw.githubusercontent.com/felixyang007/matrixUserGuide/main/.vitepress/theme/assets/public/favicon.png' }],
     ['meta', { name: 'baidu-site-verification', content: 'code-tUj7cN37g6' }],
     [
       'meta',
