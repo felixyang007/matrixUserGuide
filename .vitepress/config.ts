@@ -20,14 +20,14 @@ export default {
     [LocalePathMap.CN]: {
       lang: LOCALE.ZH_CN,
       title: 'Matrix',
-      titleTemplate: 'Matrix - 云真机测试平台',
+      titleTemplate: '云真机测试平台',
       description:
         '基于 Sonic 二次开发的云真机测试平台，用心打造更好的使用体验。 Made with 🧡 by Plaud Matrix团队.'
     },
     [LocalePathMap.EN]: {
       lang: LOCALE.EN_US,
       title: 'Matrix',
-      titleTemplate: 'Matrix - Cloud device testing platform',
+      titleTemplate: 'Cloud device testing platform',
       description:
         'A cloud device testing platform built on top of Sonic. Made with 🧡 by Plaud Matrix team.'
     }
