@@ -16,7 +16,6 @@ const nav = [
     items: [
       {
         items: [
-          {text: 'Matrix IDE 🔥', link: '/ide/re-ide'},
           {text: 'sonic-ios-bridge', link: '/sib/re-sib'},
           {text: 'sonic-android-apk', link: '/saa/re-saa'},
           {text: 'sonic-driver-core', link: '/sdc/re-sdc'},
@@ -29,10 +28,6 @@ const nav = [
         ]
       }
     ]
-  },
-  {
-    text: '硬件方案',
-    link: '/cabinet'
   },
   {
     text: '版本记录',
@@ -150,15 +145,6 @@ const sidebar = {
         {text: 'Agent端', link: '/contribute/con-agent'}
       ]
     }
-  ],
-  '/ide/': [
-    {
-      text: '快速入门',
-      items: [
-        {text: 'IDE介绍与下载', link: '/ide/re-ide'},
-        {text: '基础教学', link: '/ide/ide-demo'}
-      ]
-    },
   ],
   '/supc/': [
     {
