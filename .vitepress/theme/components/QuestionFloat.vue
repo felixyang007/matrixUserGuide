@@ -29,9 +29,6 @@
               这里
             </a>
           </div>
-          <div style="text-align: center; font-size: 12px; margin-top: 10px">
-            Made with 🧡 by Plaud Matrix团队
-          </div>
         </template>
         <template #reference>
           <img style="cursor: pointer" :src="ask" width="40" />
