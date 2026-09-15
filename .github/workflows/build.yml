@@ -29,31 +29,37 @@ jobs:
         id: sas-latest-tag
         with:
           repository: felixyang007/matrix-android-supply
+          token: ${{ secrets.MATRIX_PAT }}
           sort-tags: false
       - uses: oprypin/find-latest-tag@v1
         id: saa-latest-tag
         with:
           repository: felixyang007/matrix-android-apk
+          token: ${{ secrets.MATRIX_PAT }}
           sort-tags: false
       - uses: oprypin/find-latest-tag@v1
         id: sib-latest-tag
         with:
           repository: felixyang007/matrix-ios-bridge
+          token: ${{ secrets.MATRIX_PAT }}
           sort-tags: false
       - uses: oprypin/find-latest-tag@v1
         id: sgm-latest-tag
         with:
           repository: felixyang007/matrix-go-mitmproxy
+          token: ${{ secrets.MATRIX_PAT }}
           sort-tags: false
       - uses: oprypin/find-latest-tag@v1
         id: sdc-latest-tag
         with:
           repository: felixyang007/matrix-driver-core
+          token: ${{ secrets.MATRIX_PAT }}
           sort-tags: false
       - uses: oprypin/find-latest-tag@v1
         id: ser-latest-tag
         with:
           repository: felixyang007/matrix-server
+          token: ${{ secrets.MATRIX_PAT }}
           sort-tags: false
       - name: JSON to variables
         uses: antifree/json-to-variables@v1.0.1
