@@ -5,13 +5,13 @@ contributors:
 
 # 实时输入法
 
-## 启用Sonic输入法
+## 启用Matrix输入法
 
-先启用Sonic输入法
+先启用Matrix输入法
 ```bash
 adb shell ime enable org.cloud.sonic.android/.keyboard.SonicKeyboard
 ```
-再设置Sonic输入法为当前输入法
+再设置Matrix输入法为当前输入法
 ```bash
 adb shell ime set org.cloud.sonic.android/.keyboard.SonicKeyboard
 ```
@@ -33,7 +33,7 @@ adb shell am broadcast -a SONIC_KEYBOARD --es msg "'xxxxx'"
 
 例如输入CODE_AC_CLEAN，执行步骤时就会清空输入框，再输入sonic，就可以看到输入框输入了sonic。
 
-## 禁用Sonic输入法
+## 禁用Matrix输入法
 
 直接使用ADB指令
 ```bash

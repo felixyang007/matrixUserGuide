@@ -16,7 +16,7 @@ const nav = [
     items: [
       {
         items: [
-          {text: 'Sonic IDE 🔥', link: '/ide/re-ide'},
+          {text: 'Matrix IDE 🔥', link: '/ide/re-ide'},
           {text: 'sonic-ios-bridge', link: '/sib/re-sib'},
           {text: 'sonic-android-apk', link: '/saa/re-saa'},
           {text: 'sonic-driver-core', link: '/sdc/re-sdc'},
@@ -43,11 +43,6 @@ const nav = [
     items: [
       {
         items: [
-          {text: 'User Community', link: 'https://discord.gg/c9ZD6jSyTE'},
-          {
-            text: 'Open Collective',
-            link: 'https://opencollective.com/soniccloudorg'
-          },
           {text: '免责声明', link: '/about/policy'}
         ]
       }
@@ -107,7 +102,7 @@ const sidebar = {
         {text: 'Custom script', link: '/en/doc/doc-script'},
         {text: 'POCO Element', link: '/en/doc/doc-poco'},
         {text: 'Switch WebView', link: '/en/doc/doc-to-webview'},
-        {text: 'Sonic Input', link: '/en/doc/doc-keyboard'},
+        {text: 'Matrix Input', link: '/en/doc/doc-keyboard'},
         {text: 'Image recognition', link: '/en/doc/doc-sift'},
         {text: 'Iterate list of elements', link: '/en/doc/doc-iterator'}
       ]
@@ -321,12 +316,12 @@ const initENThemeConfig = {
   // 页面编辑链接配置
   editLink: {
     pattern:
-      'https://github.com/SonicCloudOrg/sonic-offical-website/edit/main/src/:path',
+      'https://github.com/felixyang007/matrixUserGuide/edit/main/src/:path',
     text: 'Edit this page on GitHub'
   },
   // 页脚配置
   footer: {
-    copyright: 'Copyright © All Rights Reserved Sonic Project for SonicCloudOrg'
+    copyright: 'Copyright © All Rights Reserved Matrix Project'
   }
 }
 

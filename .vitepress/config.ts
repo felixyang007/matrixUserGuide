@@ -7,13 +7,7 @@ import { LOCALE } from './theme/config/locale'
 
 // 社交链接配置（导航栏右侧）
 const socialLinks = [
-  { icon: 'github', link: 'https://github.com/SonicCloudOrg' },
-  {
-    icon: {
-      svg: '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1668841768944" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="834" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M341.333333 768h436.792889L853.333333 827.107556V384h42.666667a42.666667 42.666667 0 0 1 42.666667 42.666667v576L748.600889 853.333333H384a42.666667 42.666667 0 0 1-42.666667-42.666666v-42.666667zM232.732444 682.666667L42.666667 832V170.666667a42.666667 42.666667 0 0 1 42.666666-42.666667h640a42.666667 42.666667 0 0 1 42.666667 42.666667v512H232.732444z" p-id="835"></path></svg>'
-    },
-    link: 'https://discord.gg/c9ZD6jSyTE'
-  }
+  { icon: 'github', link: 'https://github.com/felixyang007' }
 ]
 
 enum LocalePathMap {
@@ -25,17 +19,17 @@ export default {
   locales: {
     [LocalePathMap.CN]: {
       lang: LOCALE.ZH_CN,
-      title: 'Sonic',
-      titleTemplate: 'Sonic - 开源云真机平台',
+      title: 'Matrix',
+      titleTemplate: 'Matrix - 云真机测试平台',
       description:
-        'For You, For Free, Forever. 免费开源的云真机平台，用心打造更好的使用体验。 Made with 🧡 by SonicCloudOrg.'
+        '基于 Sonic 二次开发的云真机测试平台，用心打造更好的使用体验。 Made with 🧡 by Plaud Matrix团队.'
     },
     [LocalePathMap.EN]: {
       lang: LOCALE.EN_US,
-      title: 'Sonic',
-      titleTemplate: 'Sonic - Open source cloud virtual machine platform',
+      title: 'Matrix',
+      titleTemplate: 'Matrix - Cloud device testing platform',
       description:
-        'For You, For Free, Forever. 免费开源的云真机平台，用心打造更好的使用体验。 Made with 🧡 by SonicCloudOrg.'
+        'A cloud device testing platform built on top of Sonic. Made with 🧡 by Plaud Matrix team.'
     }
   },
   srcDir: 'src',
@@ -43,7 +37,7 @@ export default {
   lastUpdated: true, // 是否显示最后修改时间
   ignoreDeadLinks: true,
   head: [
-    ['link', { rel: 'icon', href: 'https://raw.githubusercontent.com/SonicCloudOrg/soniccloudorg.github.io/main/.vitepress/theme/assets/public/favicon.ico' }],
+    ['link', { rel: 'icon', href: 'https://raw.githubusercontent.com/felixyang007/matrixUserGuide/main/.vitepress/theme/assets/public/favicon.ico' }],
     ['meta', { name: 'baidu-site-verification', content: 'code-tUj7cN37g6' }],
     [
       'meta',
@@ -77,7 +71,7 @@ export default {
       'meta',
       {
         name: 'keywords',
-        content: 'Sonic,云真机,Sonic云真机,Sonic云测,Sonic平台,Sonic测试'
+        content: 'Matrix,云真机,Matrix云真机,Matrix云测,Matrix平台,Matrix测试'
       }
     ],
     [
@@ -121,55 +115,8 @@ export default {
       [LocalePathMap.EN]: initENThemeConfig
     },
 
-    // 搜索相关配置
-    algolia: {
-      indexName: 'sonic-cloud',
-      appId: '173PUFCVUH',
-      apiKey: '4c05e65805bc511ab341c44ca5c29e83',
-      translations: {
-        button: {
-          buttonText: 'Search Docs / 文档搜索',
-          buttonAriaLabel: 'Search Docs / 文档搜索'
-        },
-        modal: {
-          searchBox: {
-            resetButtonTitle: 'Clear 清除查询条件',
-            resetButtonAriaLabel: 'Clear 清除查询条件',
-            cancelButtonText: 'Cancel 取消',
-            cancelButtonAriaLabel: 'Cancel 取消'
-          },
-          startScreen: {
-            recentSearchesTitle: 'History 搜索历史',
-            noRecentSearchesText: 'History is empty 没有搜索历史',
-            saveRecentSearchButtonTitle: 'Save to history 保存至搜索历史',
-            removeRecentSearchButtonTitle:
-              'Remove from history 从搜索历史中移除',
-            favoriteSearchesTitle: 'Favorite 收藏',
-            removeFavoriteSearchButtonTitle: 'Remove from favorite 从收藏中移除'
-          },
-          errorScreen: {
-            titleText: 'Unable to get results 无法获取结果',
-            helpText:
-              'You need to check your network connection 你可能需要检查你的网络连接'
-          },
-          footer: {
-            selectText: 'Choose 选择',
-            navigateText: 'Switch 切换',
-            closeText: 'Close 关闭'
-          },
-          noResultsScreen: {
-            noResultsText: 'Unable to find related results 无法找到相关结果',
-            suggestedQueryText: 'You can try to search 你可以尝试查询',
-            reportMissingResultsText:
-              'Do you think the query should have results? 你认为该查询应该有结果？',
-            reportMissingResultsLinkText: 'Click Feedback 点击反馈'
-          }
-        }
-      }
-    },
-
     // 网站 logo & title
-    logo: 'https://raw.githubusercontent.com/SonicCloudOrg/soniccloudorg.github.io/main/.vitepress/theme/assets/logo-full.png',
+    logo: 'https://raw.githubusercontent.com/felixyang007/matrixUserGuide/main/.vitepress/theme/assets/logo-full.png',
     // 是否显示副标题
     siteTitle: false
   },

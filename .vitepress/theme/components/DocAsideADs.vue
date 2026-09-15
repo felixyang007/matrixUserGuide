@@ -27,11 +27,11 @@ import ad2 from '../assets/ads/linux-ad2.jpg'
 
 const ads = [
   {
-    url: 'https://soniccloudorg.github.io/cabinet.html',
+    url: 'https://felixyang007.github.io/matrixUserGuide/cabinet.html',
     pic: ad2
   },
   {
-    url: 'http://qrcode.testing-studio.com/f?from=Sonic&url=https://ceshiren.com/t/topic/23746',
+    url: 'http://qrcode.testing-studio.com/f?from=Matrix&url=https://ceshiren.com/t/topic/23746',
     pic: ad1
   }
 ]

@@ -6,13 +6,13 @@ contributors:
 
 # custom script
 
-Use custom scripts to perform UI automation. (This function needs to be upgraded to Sonic v2.0.0 version)
+Use custom scripts to perform UI automation. (This function needs to be upgraded to Matrix v2.0.0 version)
 
 ## 1. Groovy (Java) script (recommended 🔥)
 
 ### Ability Introduction
 
-::: tip Sonic official recommendation reason
+::: tip Matrix official recommendation reason
 1. You can directly use all built-in functions and variables of Agent.
 2. The Groovy engine is compatible with the Java language and can be well combined with Java. It can directly run Java code or mix Groovy and Java.
 3. Groovy has a simple syntax, is easy to expand, and has a low learning threshold.
@@ -28,7 +28,7 @@ including but not limited to:
 2. androidDriver, can operate UIAutomator2-Server
 3. iosDriver, can operate Wda
 4. Global parameters, you can access the global parameters
-5. Sonic's custom steps can be reused directly
+5. Matrix's custom steps can be reused directly
 6. Others, including PocoDriver, device information, etc.
 ::: tip More built-in methods can be viewed
    [AndroidStepHandler](https://github.com/SonicCloudOrg/sonic-agent/blob/main/src/main/java/org/cloud/sonic/agent/tests/handlers/AndroidStepHandler.java)
@@ -115,7 +115,7 @@ Assertion failures throw exceptions and custom script steps are marked as failed
 
 ### Exit Driver
 
-If there is an instrument-based framework (such as fastbot, uiautomator2-python, poco-service, etc.) in your third-party tools, it will conflict with Sonic's existing processes and cause a blocking state. At this time, we can stop Sonic's Driver first.
+If there is an instrument-based framework (such as fastbot, uiautomator2-python, poco-service, etc.) in your third-party tools, it will conflict with Matrix's existing processes and cause a blocking state. At this time, we can stop Matrix's Driver first.
 
 #### Android:
 
@@ -239,7 +239,7 @@ testLong()
 #### Execute fastbot
 The following shows how to execute fastbot and continuously output the log to the test report. Note: Make sure that there are fastbot-related jars on the device before execution. For details, please refer to the fastbot documentation.
 
-Because the bottom layer of fastbot has a conflict with the instrumentation of uia2 (although Sonic will deal with it later, it is best to avoid conflicts), so execute closeDriver() first, and then startDriver() again after running
+Because the bottom layer of fastbot has a conflict with the instrumentation of uia2 (although Matrix will deal with it later, it is best to avoid conflicts), so execute closeDriver() first, and then startDriver() again after running
 ```groovy
 import org.cloud.sonic.agent.bridge.android.AndroidDeviceBridgeTool;
 import org.cloud.sonic.agent.tests.LogUtil;
@@ -348,7 +348,7 @@ to set an environment variable for the Python before starting the Agent.
 
 ### Available parameters
 
-Regardless of Android or iOS, Sonic will pass four parameters to the Python script, arg depends on times are:
+Regardless of Android or iOS, Matrix will pass four parameters to the Python script, arg depends on times are:
 1. sessionId. Android is the sessionId of uia2, and iOS is the sessionId of wda.
 2. Device udId.
 3. Global parameter Json string.
@@ -356,7 +356,7 @@ Regardless of Android or iOS, Sonic will pass four parameters to the Python scri
 
 ### Exit Driver
 
-If there is an instrument-based framework (such as fastbot, uiautomator2-python, poco-service, etc.) in your third-party tools, it will conflict with Sonic's existing processes and cause a blocking state. At this time, we can stop Sonic's Driver first.
+If there is an instrument-based framework (such as fastbot, uiautomator2-python, poco-service, etc.) in your third-party tools, it will conflict with Matrix's existing processes and cause a blocking state. At this time, we can stop Matrix's Driver first.
 
 ####Android:
 
@@ -370,9 +370,9 @@ os.system("adb -s {udId} am force-stop io.appium.uiautomator2.server.test".forma
 
 ### Sample script display
 
-#### Test directly with Sonic's already started appium uiautomator2 server
+#### Test directly with Matrix's already started appium uiautomator2 server
 
-The following is an example script for testing directly with Sonic's already started appium uiautomator2 server.
+The following is an example script for testing directly with Matrix's already started appium uiautomator2 server.
 ```
 pip install -U sonic-uia2-client
 ```
@@ -419,7 +419,7 @@ The script templates managed on the [Script Template] page can be imported and u
 
 ## Usage Specifications and Suggestions
 
-In order to reduce maintenance costs during use, the Sonic organization recommends script management as follows:
+In order to reduce maintenance costs during use, the Matrix organization recommends script management as follows:
 
 1. Save common methods/functions to 【Script Module Management】.
 2. When using the script, use the import module to append the method/function to the current script and reference it.

@@ -22,7 +22,7 @@ Considering scenarios such as bandwidth consumption and data transmission speed 
 
 This method will deploy Agent, Appium and other environments with local jar packages.
 
-1. **Some JDKs are known to be incompatible. Sonic officially recommends using JDK17**, you can go [here](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html) to install the downloads.
+1. **Some JDKs are known to be incompatible. Matrix officially recommends using JDK17**, you can go [here](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html) to install the downloads.
 2. Add an Agent from the [Agent Center] of the deployed front-end interface [Device Center], and record the Key of the Agent.
 
 ::: tip
@@ -94,7 +94,7 @@ For non-Ubuntu systems, please use the above **jar method to deploy**!
 
 This method will deploy the Agent and the required environment at one time.
 
-Preparatory work: Docker, Sonic front and back ends are deployed
+Preparatory work: Docker, Matrix front and back ends are deployed
 
 1. Add an Agent from the [Agent Center] of the deployed front-end interface [Device Center], and record the Key of the Agent.
 2. [Click here](https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/docker-compose.yml) to download the latest docker-compose. yml, refer to the comments to modify the content inside. (If the acceleration link fails, please go to <a href="https://github.com/SonicCloudOrg/sonic-agent/releases" target="_black">here</a> to download)
@@ -117,7 +117,7 @@ docker-compose -f docker-compose-zh.yml up -d
 
 Q1: Are there any precautions for deploying on Mac?
 
-A1: You need to trust the source of Sonic, otherwise some plugins will not start properly.
+A1: You need to trust the source of Matrix, otherwise some plugins will not start properly.
 1. Terminal input
 ```
 sudo spctl --master-disable

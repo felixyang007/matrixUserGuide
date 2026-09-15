@@ -22,7 +22,7 @@ You can directly **start** or **uninstall** the selected application.
 
 ### Drag and drop installation
 
-Just drag and drop your App into the drag box to upload it to Sonic for installation.
+Just drag and drop your App into the drag box to upload it to Matrix for installation.
 
 ### URL installation
 

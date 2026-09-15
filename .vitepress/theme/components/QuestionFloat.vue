@@ -11,18 +11,18 @@
           <div>
             1. 有疑问欢迎前往
             <a
-              href="https://discord.gg/c9ZD6jSyTE"
+              href="https://github.com/felixyang007"
               target="_blank"
               style="text-decoration: none"
             >
-              社区
+              GitHub
             </a>
             提问哦
           </div>
           <div>
             2. 联系我们？可前往
             <a
-              href="https://discord.gg/c9ZD6jSyTE"
+              href="https://github.com/felixyang007"
               target="_blank"
               style="text-decoration: none"
             >
@@ -30,7 +30,7 @@
             </a>
           </div>
           <div style="text-align: center; font-size: 12px; margin-top: 10px">
-            Made with 🧡 by SonicCloudOrg
+            Made with 🧡 by Plaud Matrix团队
           </div>
         </template>
         <template #reference>

@@ -5,7 +5,7 @@
       <h1 class="title">未找到页面</h1>
       <div class="divider" />
       <blockquote class="quote">
-        暂时无法找到当前页面路径，如果发现有任何疑问请联系 Sonic 团队！
+        暂时无法找到当前页面路径，如果发现有任何疑问请联系 Matrix 团队！
       </blockquote>
 
       <div class="action">

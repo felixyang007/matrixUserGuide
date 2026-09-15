@@ -19,7 +19,7 @@ webView.setWebContentsDebuggingEnabled(true);
 
 ## 关于ChromeDriver
 
-v2.0.0-beta开始，Sonic会自动匹配并下载WebView对应Chrome版本的ChromeDriver，能兼容大概80-85%左右的版本。
+v2.0.0-beta开始，Matrix会自动匹配并下载WebView对应Chrome版本的ChromeDriver，能兼容大概80-85%左右的版本。
 
 但是部分旧Chrome版本或M1版本的缺失，可能造成自动下载失败，这时我们需要手动添加chromeDriver文件到Agent的**webview**目录下。
 例：被测WebView的Chrome协议版本为77.0.3865.10，我们需将对应版本的chromeDriver重命名为

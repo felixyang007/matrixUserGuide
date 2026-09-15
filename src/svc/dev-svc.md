@@ -5,7 +5,7 @@ contributors:
 
 # sonic-vision-core
 
-本文为Sonic图像识别模块sonic-vision-core的开发文档。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-vision-core)
+本文为Matrix图像识别模块sonic-vision-core的开发文档。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-vision-core)
 
 <div style="display: flex">
 <img src="https://img.shields.io/github/stars/SonicCloudOrg/sonic-vision-core?style=social">
@@ -26,4 +26,4 @@ contributors:
 4. 执行git clone指令，将您的仓库代码克隆到本地。
 5. 等待依赖下载完毕。
 6. 🎉恭喜！您已经可以开始开发了！
-7. 开发完毕后，push到自己的仓库，然后可以给Sonic原仓库提起pr哦！随后即可成为Sonic贡献者！（建议贡献前先开启issue讨论，防止跟组织计划进度有冲突哦）
+7. 开发完毕后，push到自己的仓库，然后可以给Matrix原仓库提起pr哦！随后即可成为Matrix贡献者！（建议贡献前先开启issue讨论，防止跟组织计划进度有冲突哦）

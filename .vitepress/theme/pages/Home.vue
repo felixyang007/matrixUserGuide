@@ -10,19 +10,6 @@
       <!-- 品牌标语 -->
       <h1 class="brand-slogan">“ For You，For Free，Forever ”</h1>
 
-      <!-- 品牌数据统计 -->
-      <div class="statistics">
-        <template v-for="item in statisticsData" :key="item.tipContent">
-          <client-only>
-            <el-tooltip :content="item.tipContent" placement="top">
-              <a :href="item.linkUrl" class="statistics-link" target="_blank">
-                <img :src="item.img"/>
-              </a>
-            </el-tooltip>
-          </client-only>
-        </template>
-      </div>
-
       <!-- 品牌描述 -->
       <h4 class="brand-desc">
         {{ $t('home.desc') }}
@@ -42,14 +29,14 @@
           type="primary"
           size="large"
           round
-          @click="open('https://discord.gg/c9ZD6jSyTE')"
+          @click="open('https://github.com/felixyang007')"
         >
-          用户社区
+          GitHub
         </el-button>
       </div>
 
       <!-- 脚标 -->
-      <h5 class="footmark">Made with 🧡 by SonicCloudOrg</h5>
+      <h5 class="footmark">Made with 🧡 by Plaud Matrix团队</h5>
     </div>
     <div class="hero__right">
       <video width="800" controls :src="demo"/>
@@ -90,18 +77,24 @@
     <!--      </div>-->
     <!--    </section-box>-->
 
-    <section-box title="Sonic荣誉及认证">
+    <section-box title="关于 Matrix">
       <div class="honor-card">
-        <el-card v-for="d in honor" class="honor-card-wrapper" shadow="hover">
-          <div class="honor-card-content" @click="open(d.url)">
-            <img class="honor-img" :src="d.img"/>
-            <h4 class="honor-name">{{ d.name }}</h4>
+        <el-card class="honor-card-wrapper" shadow="hover">
+          <div class="honor-card-content">
+            <h4 class="honor-name">基于 Sonic v2.7.2 二次开发</h4>
+            <p>Matrix 是 Plaud 团队在开源项目 <b>Sonic</b>（AGPL-3.0）基础上二次开发的云真机测试平台，延续「远程真机控制 + 0 编码 UI 自动化」的完整能力。</p>
+          </div>
+        </el-card>
+        <el-card class="honor-card-wrapper" shadow="hover">
+          <div class="honor-card-content">
+            <h4 class="honor-name">我们的增强与改造</h4>
+            <p>升级 Android uiautomator2 引擎至 v10.6.2、统一 adb 37.0.1、修复 Android 14+ 投屏黑屏、iOS WDA 升级 16.12.8 并支持模拟器、Web UI 换用 Matrix 品牌。</p>
           </div>
         </el-card>
       </div>
     </section-box>
 
-    <section-box title="Sonic支持哪些设备？">
+    <section-box title="Matrix支持哪些设备？">
       <div class="devices">
         <el-card
           class="card-content"
@@ -120,7 +113,7 @@
         </el-card>
       </div>
     </section-box>
-    <section-box title="为什么使用Sonic？">
+    <section-box title="为什么使用Matrix？">
       <div class="use-case">
         <el-card class="case-content" shadow="hover">
           <img :src="team4" width="40"/>
@@ -172,15 +165,15 @@
         </el-card>
       </div>
     </section-box>
-    <section-box title="Sonic的价值与产出">
+    <section-box title="Matrix的价值与产出">
       <div class="capacity-wrapper">
         <img class="capacity-img" :src="msg"/>
         <el-timeline class="capacity-list" style="text-align: left">
           <el-timeline-item type="primary" :hollow="true">
-            Sonic提供图像识别，支持获取poco控件，助力游戏公司测试效率。
+            Matrix提供图像识别，支持获取poco控件，助力游戏公司测试效率。
           </el-timeline-item>
           <el-timeline-item type="primary" :hollow="true">
-            使用Sonic进行跨网段部署，助力海外业务的公司进行专项检测。
+            使用Matrix进行跨网段部署，助力海外业务的公司进行专项检测。
           </el-timeline-item>
           <el-timeline-item type="primary" :hollow="true">
             提供定时任务充分利用无人值守时间回归UI测试，省时省力。
@@ -201,36 +194,38 @@
       </div>
     </section-box>
 
-    <section-box title="金牌赞助商">
-      <div class="sponsor">
-        <div class="sponsor__list">
-          <a
-            href="http://qrcode.testing-studio.com/f?from=Sonic&url=https://ceshiren.com/"
-            target="_blank"
-          >
-            <img
-              src="https://ceshiren.com/uploads/default/original/3X/7/0/70299922296e93e2dcab223153a928c4bfb27df9.jpeg"
-              alt="霍格沃兹测试开发学社"
-              width="350"
-            />
-          </a>
-          <a
-            style="margin-left: 20px"
-            href="https://ec.diwork.com/"
-            target="_blank"
-          >
-            <img
-              src="https://ec.diwork.com/html/index/img/newlogo.png"
-              alt="友空间"
-              width="350"
-            />
-          </a>
-        </div>
-        <a class="" href="mailto:291028775@qq.com" target="_blank">
-          <el-button round plain style="width: 150px; margin-top: 30px">
-            成为赞助商！
-          </el-button>
-        </a>
+    <section-box title="Matrix 核心改动">
+      <div class="use-case">
+        <el-card class="case-content" shadow="hover">
+          <h3>Android 引擎升级</h3>
+          <p>uiautomator2-server 5.7.4 → 10.6.2</p>
+          <p>移植 7 个 legacy touch 端点，远控拖拽可用</p>
+        </el-card>
+        <el-card class="case-content" shadow="hover">
+          <h3>adb 统一 37.0.1</h3>
+          <p>统一平台工具版本，避免 adb 互杀</p>
+          <p>减少设备反复掉线</p>
+        </el-card>
+        <el-card class="case-content" shadow="hover">
+          <h3>投屏黑屏修复</h3>
+          <p>scrcpy 固化 Android 14+ 补丁</p>
+          <p>老包一键 patch</p>
+        </el-card>
+        <el-card class="case-content" shadow="hover">
+          <h3>iOS 增强</h3>
+          <p>WDA 升级 16.12.8，适配 Xcode 26 / iOS 26</p>
+          <p>新增 iOS 模拟器支持</p>
+        </el-card>
+        <el-card class="case-content" shadow="hover">
+          <h3>Web UI 换新</h3>
+          <p>Matrix 品牌 + 双主题</p>
+          <p>设备中心 / 用例 / 报告逐步打磨</p>
+        </el-card>
+        <el-card class="case-content" shadow="hover">
+          <h3>设备身份稳定</h3>
+          <p>udId 改用 ro.serialno / adb over WiFi</p>
+          <p>掉线重连仍是同一台设备</p>
+        </el-card>
       </div>
     </section-box>
 
@@ -252,8 +247,6 @@ import SectionBox from '../components/SectionBox.vue'
 
 // 图片资源
 import demo from '../assets/video/demo.mp4'
-import mtsc from '../assets/mtsc.png'
-import gvp from '../assets/gvp.png'
 
 // 支持设备
 import a1 from '../assets/ANDROID.jpg'
@@ -272,48 +265,6 @@ import team8 from '../assets/docker.png'
 // 价值与产出
 import msg from '../assets/msg.png'
 import {useRouter} from 'vitepress'
-
-const honor = [
-  {
-    name: "MTSC 2022年度最佳开源项目评选第一名",
-    img: mtsc,
-    url: "https://mp.weixin.qq.com/s/KDhKtRBvO6gtQ3Tg1z27-w"
-  },
-  {
-    name: "开源中国GVP - Gitee最有价值开源项目",
-    img: gvp,
-    url: "https://gitee.com/gvp/"
-  },
-]
-
-// 品牌数据统计
-const statisticsData = [
-  {
-    tipContent: 'Sonic组织Gitee镜像Star数量',
-    linkUrl: 'https://gitee.com/sonic-cloud/sonic-server/stargazers',
-    img: 'https://gitee.com/sonic-cloud/sonic-server/badge/star.svg?theme=gvp'
-  },
-  {
-    tipContent: 'Sonic组织Github Follower数量',
-    linkUrl: 'https://github.com/SonicCloudOrg',
-    img: 'https://img.shields.io/github/followers/SonicCloudOrg?style=social'
-  },
-  {
-    tipContent: 'Sonic组织Github仓库总Star数量',
-    linkUrl: 'https://github.com/SonicCloudOrg',
-    img: 'https://img.shields.io/github/stars/soniccloudorg?style=social'
-  },
-  {
-    tipContent: 'Agent端Release总下载量',
-    linkUrl: 'https://github.com/SonicCloudOrg/sonic-agent/releases',
-    img: 'https://img.shields.io/github/downloads/SonicCloudOrg/sonic-agent/total'
-  },
-  {
-    tipContent: 'Sonic用户社区在线人数',
-    linkUrl: 'https://discord.gg/c9ZD6jSyTE',
-    img: 'https://img.shields.io/discord/1182530185749344307?color=%235865F2&logo=discord&logoColor=%23FFFFFF&style=flat-square'
-  }
-]
 
 // 支持设备
 const devices = [

@@ -9,7 +9,7 @@ Precautions and teaching for using image recognition operations.
 
 ## Precautions
 
-The image library currently used by Sonic is based on [sonic-vision-core](https://github.com/SonicCloudOrg/sonic-vision-core). If your image type operation reports an error similar to missing dependencies, please check whether the jar package of the Agent matches your platform.
+The image library currently used by Matrix is based on [sonic-vision-core](https://github.com/SonicCloudOrg/sonic-vision-core). If your image type operation reports an error similar to missing dependencies, please check whether the jar package of the Agent matches your platform.
 
 ::: warning note
 It is known that some Mac arm64 systems will have problems using this function. You can try to download the Mac x86_64 Agent and replace the original arm64 jar with the Mac x86_64 jar (only the jar can be replaced, and there is no need to replace the binary files under plugins, otherwise the The plugin failed to use because there is no corresponding system architecture)

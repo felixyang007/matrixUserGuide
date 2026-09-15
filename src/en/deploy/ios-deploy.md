@@ -7,7 +7,7 @@ contributors:
 
 # iOS device access
 
-This article will introduce the preparations for connecting iOS devices to Sonic.
+This article will introduce the preparations for connecting iOS devices to Matrix.
 
 ## Access common configuration
 
@@ -32,7 +32,7 @@ iOS16 needs to manually enable the developer options.
 This feature requires v2.7.1 and above
 :::
 
-Currently, Sonic is not compatible with iOS17 and above devices on Windows and Linux platforms, so iOS17 and above machines must be connected to the Agent deployed on MacOS.
+Currently, Matrix is not compatible with iOS17 and above devices on Windows and Linux platforms, so iOS17 and above machines must be connected to the Agent deployed on MacOS.
 
 1. Agent needs to install `iproxy` and `ideviceinstaller`
 
@@ -62,7 +62,7 @@ After the build is successful, it can be separated from the Mac, and the iOS dev
 :::
 Preparations: Mac, Xcode, developer account.
 
-1. Pull the WebDriverAgent project of Sonic. (This project is same as appium/WebDriverAgent.)
+1. Pull the WebDriverAgent project of Matrix. (This project is same as appium/WebDriverAgent.)
 
 ```bash
 git clone https://github.com/SonicCloudOrg/sonic-ios-wda.git

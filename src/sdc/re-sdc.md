@@ -5,7 +5,7 @@ contributors:
 
 # sonic-driver-core
 
-本文为Sonic UI自动化Driver核心sonic-driver-core的介绍与原理简述。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-driver-core) 
+本文为Matrix UI自动化Driver核心sonic-driver-core的介绍与原理简述。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-driver-core) 
 
 👉[Java Doc](https://s01.oss.sonatype.org/service/local/repositories/releases/archive/io/github/soniccloudorg/sonic-driver-core/1.1.29/sonic-driver-core-1.1.29-javadoc.jar/!/index.html)
 
@@ -22,7 +22,7 @@ contributors:
 
 ## 介绍
 
-sonic-driver-core是Sonic UI自动化核心，主要直接通过与 
+sonic-driver-core是Matrix UI自动化核心，主要直接通过与 
 
 1. [appium-uiautomator2-server](https://github.com/SonicCloudOrg/sonic-appium-uiautomator2-server) 
 2. [WebDriverAgent](https://github.com/SonicCloudOrg/sonic-ios-wda) 

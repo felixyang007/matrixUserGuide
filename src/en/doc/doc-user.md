@@ -6,7 +6,7 @@ contributors:
 
 # User configuration
 
-Manage role information corresponding to Sonic users
+Manage role information corresponding to Matrix users
 
 
 

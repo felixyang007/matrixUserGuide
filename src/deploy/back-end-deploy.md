@@ -6,7 +6,7 @@ contributors:
 
 # 前后端部署
 
-本文将介绍如何部署 Sonic 的 Server 端与 Client 端。
+本文将介绍如何部署 Matrix 的 Server 端与 Client 端。
 
 ## 快速部署
 
@@ -14,7 +14,7 @@ contributors:
 
 准备工作：docker-compose、Docker、MySQL
 
-1. 创建一个MySQL数据库，数据库名可自定义，注意字符集为 utf8，排序规则为 utf8_general_ci。如果你想MySQL随着Sonic一同启动（不推荐），可以参考本页下方`在docker-compose.yml中内置MySQL`的内容。
+1. 创建一个MySQL数据库，数据库名可自定义，注意字符集为 utf8，排序规则为 utf8_general_ci。如果你想MySQL随着Matrix一同启动（不推荐），可以参考本页下方`在docker-compose.yml中内置MySQL`的内容。
 2. [点击这里](https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-server/releases/download/v2.6.4/sonic-server-v2.6.4.zip) 下载最新版本的 **zip** 文件到任意目录（如加速链接失效，请自行前往 <a href="https://github.com/SonicCloudOrg/sonic-server/releases" target="_black">这里</a> 下载）。
 3. 解压 zip，更改.env 中的信息。（无需改动 docker-compose.yml 文件。env 配置项内容可查看下方表格。如果您的系统没显示.env，在本页最下方【常见问题】查看解决方案）
 4. 当前目录下执行以下指令
@@ -43,9 +43,9 @@ docker-compose -f docker-compose-zh.yml up -d
 | SONIC_EUREKA_PORT      | Eureka 启动端口（一般不需要改动）                                             | 9090                     |
 | MYSQL_HOST             | MySQL 服务的 host，不能使用 localhost、127.0.0.1.                         | 192.168.0.1              |
 | MYSQL_PORT             | MySQL 服务的端口（一般默认为 3306）                                          | 3306                     |
-| MYSQL_DATABASE         | Sonic 服务要用到的数据库                                                  | sonic                    |
+| MYSQL_DATABASE         | Matrix 服务要用到的数据库                                                  | sonic                    |
 | MYSQL_USERNAME         | MySQL 数据库用户名                                                     | root                     |
-| MYSQL_PASSWORD         | MySQL 数据库密码                                                      | Sonic!@#123              |
+| MYSQL_PASSWORD         | MySQL 数据库密码                                                      | Matrix!@#123              |
 | SECRET_KEY             | token 加密密钥（为提高安全性，不建议使用默认值，可以更改为其他任意字符串）                         | sonic                    |
 | EXPIRE_DAY             | token 有效天数                                                       | 14                       |
 | PERMISSION_ENABLE      | 是否开启权限配置                                                         | true                     |
@@ -57,7 +57,7 @@ docker-compose -f docker-compose-zh.yml up -d
 | LDAP_BASE_DN           | LDAP user 搜索用户组                                                  | users                    |
 | LDAP_BASE              | LDAP Base DN                                                     | ou=system                |
 | LDAP_USERNAME          | LDAP Base DN 管理员用户名                                              | uid=admin,ou=system      |
-| LDAP_PASSWORD          | LDAP Base DN 管理员密码                                               | Sonic!@#123              |
+| LDAP_PASSWORD          | LDAP Base DN 管理员密码                                               | Matrix!@#123              |
 | LDAP_URL               | LDAP 服务 URL                                                      | ldap://192.168.0.1:10389 |
 | LDAP_OBJECT_CLASS      | LDAP 筛选 class，默认为 person                                         | person                   |
 

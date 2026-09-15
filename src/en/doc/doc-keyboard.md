@@ -3,9 +3,9 @@ contributors:
 - 'ZhouYixun'
 ---
 
-# Sonic input
+# Matrix input
 
-Instructions using the Sonic input method.
+Instructions using the Matrix input method.
 
 ## Precautions and introduction
 
@@ -15,7 +15,7 @@ This function can only be used after v2.0.5. When applied to automation, it is m
 3. In some cases, the input box cannot use automatic input, but only the input method
 
 ::: tip
-In order to facilitate switching back to the system input method after the mobile phone is separated from Sonic, after upgrading to Sonic v2.3.0, you can directly click the gray area below the Sonic input method to quickly jump to the system input method setting page to switch input methods.
+In order to facilitate switching back to the system input method after the mobile phone is separated from Matrix, after upgrading to Matrix v2.3.0, you can directly click the gray area below the Matrix input method to quickly jump to the system input method setting page to switch input methods.
 :::
 
 ## Instructions

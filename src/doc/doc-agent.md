@@ -10,7 +10,7 @@ contributors:
 对Agent进行管理。
 
 ::: tip 
-Agent部署有疑问？可前往 [Agent端部署文档](https://soniccloudorg.github.io/deploy/agent-deploy.html) 查看哦~
+Agent部署有疑问？可前往 [Agent端部署文档](https://felixyang007.github.io/matrixUserGuide/deploy/agent-deploy.html) 查看哦~
 :::
 
 ## 新增Agent

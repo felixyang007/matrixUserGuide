@@ -21,7 +21,7 @@ contributors:
 </a>
 
 ## 介绍
-目前Sonic的自动化依赖了 [appium-uiautomator2-server](https://github.com/appium/appium-uiautomator2-server)，但是我们绕开了Appium Server来直接使用。
+目前Matrix的自动化依赖了 [appium-uiautomator2-server](https://github.com/appium/appium-uiautomator2-server)，但是我们绕开了Appium Server来直接使用。
 
 考虑到有IDE用户想直接调用uia远程url的使用场景，我们进行了预研，发现Github上只看到一个Python绕开Appium Server单独跟appium-uiautomator2-server交互的项目 [appium-uiautomator2-client](https://github.com/xsoloking/appium-uiautomator2-client)，但是未能兼容最新appium-uiautomator2-server v5.x API的baseUrl，并且没有发布在pypi。尝试过跟作者接触但是没有回复，于是决定组织自己写一个维护。
 

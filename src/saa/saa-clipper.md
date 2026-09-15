@@ -6,20 +6,20 @@ contributors:
 # 剪切板操作
 
 ::: tip
-本功能需要 `sonic-android-apk` v2.0.7 以上，对应Sonic版本为 v2.5.0
+本功能需要 `sonic-android-apk` v2.0.7 以上，对应Matrix版本为 v2.5.0
 :::
 
 ## 前置操作
 
-先启用Sonic输入法
+先启用Matrix输入法
 ```bash
 adb shell ime enable org.cloud.sonic.android/.keyboard.SonicKeyboard
 ```
-再设置Sonic输入法为当前输入法
+再设置Matrix输入法为当前输入法
 ```bash
 adb shell ime set org.cloud.sonic.android/.keyboard.SonicKeyboard
 ```
-然后需要在输入框`使用过`或`激活起`Sonic输入法，让Sonic输入法为后台应用
+然后需要在输入框`使用过`或`激活起`Matrix输入法，让Matrix输入法为后台应用
 
 ## 直接使用
 
@@ -28,7 +28,7 @@ adb shell ime set org.cloud.sonic.android/.keyboard.SonicKeyboard
 ### 设置剪切板内容
 
 ```bash
-adb shell am broadcast -a SONIC_CLIPPER_SET --es msg "'I like Sonic'"
+adb shell am broadcast -a SONIC_CLIPPER_SET --es msg "'I like Matrix'"
 ```
 你可以看到类似输出
 ```
@@ -44,6 +44,6 @@ adb shell am broadcast -a SONIC_CLIPPER_GET
 你可以看到类似输出
 ```
 Broadcasting: Intent { act=SONIC_CLIPPER_GET flg=0x400000 }
-Broadcast completed: result=-1, data="I like Sonic"
+Broadcast completed: result=-1, data="I like Matrix"
 ```
 

@@ -8,7 +8,7 @@ contributors:
 
 # Android device access
 
-This article will introduce the related content of connecting Android devices to Sonic.
+This article will introduce the related content of connecting Android devices to Matrix.
 
 ## General access steps
 
@@ -28,8 +28,8 @@ If you need to collect performance information, you can additionally open the fo
 1. Click [GPU rendering mode analysis] in the developer options (some models are called [HWUI rendering mode analysis])
 2. In [GPU rendering mode analysis], click to select [in adb shell dumpsys gfxinfo]
 
-If the versions of Sonic plug-in, uiautomator2, and uiautomator2-test are updated after upgrading Sonic, the phone may restore related power optimization.
-Therefore, you need to check again to ensure that the Sonic plug-in, uiautomator2, and uiautomator2-test battery optimization are configured correctly.
+If the versions of Matrix plug-in, uiautomator2, and uiautomator2-test are updated after upgrading Matrix, the phone may restore related power optimization.
+Therefore, you need to check again to ensure that the Matrix plug-in, uiautomator2, and uiautomator2-test battery optimization are configured correctly.
 
 :::
 
@@ -59,7 +59,7 @@ Different content of each brand can be read down 👇
 1. Enter【Settings】->【System Management】->【About Phone】->【Version Information】->【Software Version】Multiple clicks to enable developer options
 2. Enter the developer options, open the bottom [Disable permission monitoring], close [USB verification application]
 3. Open the system power settings
-4. Turn off the power optimization of Sonic plug-in, uiautomator2, uiautomator2-test
+4. Turn off the power optimization of Matrix plug-in, uiautomator2, uiautomator2-test
 5. [Others] -> [Keyboard and Input Method] Close the safe keyboard
 
 ## vivo
@@ -67,14 +67,14 @@ Different content of each brand can be read down 👇
 1. Enter【Settings】->【System Management】->【About Phone】->【Version Information】->【Software Version】Multiple clicks to enable developer options
 2. Enter the developer options, enable [Security Permissions] and [USB Simulate Click]
 3. [Others] -> [Keyboard and Input Method] Close the safe keyboard
-4. Turn off the power optimization of Sonic plug-in, uiautomator2, uiautomator2-test
+4. Turn off the power optimization of Matrix plug-in, uiautomator2, uiautomator2-test
 
 ## OnePlus
 
 1. Go to [Settings] -> [About Phone] -> [Version Number] and click multiple times to open the developer options
 2. Go to [Settings] -> [System] -> [Developer Options] and enable [USB Debugging]
 3. Go to [Settings] -> [System] -> [Developer Options] -> [Default USB Configuration] to select file transfer
-4. Go to [Settings] -> [Battery] -> [Battery Optimization], turn off the power optimization of Sonic plug-in, uiautomator2, uiautomator2-test (if you can’t find it, you need to go to the fifth step first)
+4. Go to [Settings] -> [Battery] -> [Battery Optimization], turn off the power optimization of Matrix plug-in, uiautomator2, uiautomator2-test (if you can’t find it, you need to go to the fifth step first)
 5. Some OnePlus devices need to enable 【Prohibit Permission Monitoring】
 
 ## Meizu

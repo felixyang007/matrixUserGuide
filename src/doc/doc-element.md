@@ -17,7 +17,7 @@ contributors:
 
 ## POCO控件
 
-目前Sonic已支持游戏自动化的引擎有：
+目前Matrix已支持游戏自动化的引擎有：
 1. Unity3D
 2. UE4
 3. Egret

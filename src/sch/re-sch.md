@@ -6,7 +6,7 @@ contributors:
 
 # sonic-ci-helper-plugin
 
-本文为 Sonic Jenkins 插件 sonic-ci-helper-plugin 的介绍与原理简述。 👉[Github 地址](https://github.com/jenkinsci/sonic-ci-helper-plugin)
+本文为 Matrix Jenkins 插件 sonic-ci-helper-plugin 的介绍与原理简述。 👉[Github 地址](https://github.com/jenkinsci/sonic-ci-helper-plugin)
 
 <div style="display: flex">
 <img src="https://img.shields.io/github/stars/jenkinsci/sonic-ci-helper-plugin?style=social">
@@ -30,7 +30,7 @@ contributors:
 ### 一、在线安装
 
 1. 进入 【管理 Jenkins】 -> 【插件管理】 视图
-2. 搜索 Sonic CI Helper 安装即可
+2. 搜索 Matrix CI Helper 安装即可
 
    ![center](./images/center.png)
 
@@ -71,7 +71,7 @@ sonic-ci-helper支持pipeline脚本项目，例子如下：
 |---------|---------|--------|------------------------|
 |scanDir | 扫描目录    | string | App包所在目录,默认是当前项目空间目录，例如填写 build,扫描目录是： ${WORKSPACE}/build。（可选）              |
 |projectId | 对应项目    | int    | 选取的项目id             |
-|apiKey | 鉴权Token | String | 可前往Sonic平台右上角用户头像处生成填入  |
+|apiKey | 鉴权Token | String | 可前往Matrix平台右上角用户头像处生成填入  |
 |suiteId | 测试套件id  | int    | 构建后触发的测试套件id（可选），为空则不触发       |
 |wildcard | 文件通配符   | string | 默认 （**/*.apk,**/*.ipa），支持通配符号，如果想要 sonic 开头的 apk 可以这样： `**/sonic-*.apk` |
 |isRunSuite | 是否运行测试套件  | bool    | 默认值：true ,可以设置环境变量或参数化构建过程     |

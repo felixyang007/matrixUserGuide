@@ -8,7 +8,7 @@ Global parameter management for the project.
 
 ## Usage and built-in parameters
 
-In addition to the user-defined global parameters, Sonic also has some built-in parameters for random data construction.
+In addition to the user-defined global parameters, Matrix also has some built-in parameters for random data construction.
 ::: tip
 During the test process, the results of test steps such as [Get Text] can also be stored in temporary parameters, and can be referenced in the same way later to achieve the effect of parameter passing.
 :::

@@ -9,7 +9,7 @@ contributors:
 
 # 安卓设备接入
 
-本文将介绍安卓设备接入 Sonic 相关内容。
+本文将介绍安卓设备接入 Matrix 相关内容。
 
 ## 通用接入步骤
 
@@ -29,8 +29,8 @@ contributors:
 1. 开发者选项中点击【GPU呈现模式分析】（部分机型叫【HWUI呈现模式分析】）
 2. 在【GPU呈现模式分析】中，点击选中【在adb shell dumpsys gfxinfo中】
 
-若升级Sonic后，Sonic 插件、uiautomator2、uiautomator2-test 的版本有更新，手机可能会还原相关电源优化。
-故需要重新检查一遍，确保Sonic 插件、uiautomator2、uiautomator2-test 电量优化关配置正确
+若升级Matrix后，Matrix 插件、uiautomator2、uiautomator2-test 的版本有更新，手机可能会还原相关电源优化。
+故需要重新检查一遍，确保Matrix 插件、uiautomator2、uiautomator2-test 电量优化关配置正确
 
 :::
 
@@ -60,8 +60,8 @@ contributors:
 1. 进入【设置】->【系统管理】->【关于手机】->【版本信息】->【软件版本】多次点击开启开发者选项
 2. 进入开发者选项，开启最下方【禁止权限监控】，关闭【USB 验证应用】
 3. 打开系统电量设置
-4. 将 Sonic 插件、uiautomator2、uiautomator2-test 的电量优化关闭
-5. 将 Sonic插件、uiautomator2、uiautomator2-test耗电行为设置为【完全允许后台行为】
+4. 将 Matrix 插件、uiautomator2、uiautomator2-test 的电量优化关闭
+5. 将 Matrix插件、uiautomator2、uiautomator2-test耗电行为设置为【完全允许后台行为】
 6. 【其他】->【键盘与输入法】关闭安全键盘
 
 ## vivo（含IQOO）
@@ -69,16 +69,16 @@ contributors:
 1. 进入【设置】->【系统管理】->【关于手机】->【版本信息】->【软件版本】多次点击开启开发者选项
 2. 进入开发者选项，开启【安全权限】与【USB 模拟点击】
 3. 【其他】->【键盘与输入法】关闭安全键盘
-4. 将 Sonic 插件、uiautomator2、uiautomator2-test 的电量优化关闭
-5. 将 Sonic插件、uiautomator2、uiautomator2-test耗电行为设置为【完全允许后台行为】
+4. 将 Matrix 插件、uiautomator2、uiautomator2-test 的电量优化关闭
+5. 将 Matrix插件、uiautomator2、uiautomator2-test耗电行为设置为【完全允许后台行为】
 
 ## OnePlus
 
 1. 进入【设置】->【关于手机】->【版本号】多次点击开启开发者选项
 2. 进入【设置】->【系统】->【开发者选项】，开启【USB 调试】
 3. 进入【设置】->【系统】->【开发者选项】->【默认 USB 配置】选择文件传输
-4. 进入【设置】->【电池】->【电池优化】，将 Sonic 插件、uiautomator2、uiautomator2-test 的电量优化关闭（如果找不到，需要先进行第五步）
-5. 将 Sonic插件、uiautomator2、uiautomator2-test耗电行为设置为【完全允许后台行为】
+4. 进入【设置】->【电池】->【电池优化】，将 Matrix 插件、uiautomator2、uiautomator2-test 的电量优化关闭（如果找不到，需要先进行第五步）
+5. 将 Matrix插件、uiautomator2、uiautomator2-test耗电行为设置为【完全允许后台行为】
 6. 部分 OnePlus 需要开启【禁止权限监控】
 
 ## Motorola

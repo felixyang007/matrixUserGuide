@@ -5,7 +5,7 @@ contributors:
 
 # sonic-vision-core
 
-本文为Sonic图像识别模块sonic-vision-core的介绍与原理简述。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-vision-core)
+本文为Matrix图像识别模块sonic-vision-core的介绍与原理简述。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-vision-core)
 
 <div style="display: flex">
 <img src="https://img.shields.io/github/stars/SonicCloudOrg/sonic-vision-core?style=social">

@@ -19,7 +19,7 @@ webView.setWebContentsDebuggingEnabled(true);
 
 ## About ChromeDriver
 
-Starting from v2.0.0-beta, Sonic will automatically match and download the ChromeDriver corresponding to the Chrome version of WebView, which is compatible with about 80-85% of the versions.
+Starting from v2.0.0-beta, Matrix will automatically match and download the ChromeDriver corresponding to the Chrome version of WebView, which is compatible with about 80-85% of the versions.
 
 However, the lack of some old Chrome versions or M1 versions may cause the automatic download to fail. At this time, we need to manually add the chromeDriver file to the **webview** directory of the Agent.
 Example: The Chrome protocol version of the tested WebView is 77.0.3865.10, we need to rename the corresponding version of chromeDriver to

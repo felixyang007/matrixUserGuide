@@ -6,7 +6,7 @@ contributors:
 
 # System scheduled tasks
 
-Manage the scheduled tasks built into the Sonic system, and general users do not need to modify them
+Manage the scheduled tasks built into the Matrix system, and general users do not need to modify them
 
 
 ## Edit

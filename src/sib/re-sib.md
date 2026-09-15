@@ -25,7 +25,7 @@ contributors:
 以打造跨平台执行xctest、WebDriverAgentRunner、性能监听等等特色功能的命令行iOS调试工具。
 
 ::: info 关于gidevice共建
-Sonic组织也在持续将iOS通信的探索 **共建** 到gidevice上，Sonic会先在 [sonic-gidevice](https://github.com/SonicCloudOrg/sonic-gidevice) 建设，等feat稳定之后通过  **feat/contribute_to_repo** 分支提交到原gidevice仓库，以下是Sonic组织目前参与建设的提交：
+Matrix组织也在持续将iOS通信的探索 **共建** 到gidevice上，Matrix会先在 [sonic-gidevice](https://github.com/SonicCloudOrg/sonic-gidevice) 建设，等feat稳定之后通过  **feat/contribute_to_repo** 分支提交到原gidevice仓库，以下是Matrix组织目前参与建设的提交：
 1. 新增DiagnosticsRelay实现设备关机与重启。[feat: [DiagnosticsRelay] new functions Reboot Shutdown](https://github.com/electricbubble/gidevice/commit/ad436febc507a655ddd5de4720e6b0843bf45b16)
 2. 新增SpringBoardServices与App图标获取。[feat: [SpringBoard] support get the app's icon](https://github.com/electricbubble/gidevice/commit/a31cdff57d0fc234acf4a57d6f707a7b67a23f8d)
 3. 扩展SpringBoardServices获取屏幕旋转方向。[feat: [SpringBoard] support get the orientation of the interface](https://github.com/electricbubble/gidevice/commit/e787834515aabaacdf9208953625dd48af8d8514)
@@ -40,7 +40,7 @@ usbmux的作用是实现跨平台与iOS设备服务的通信。
 
 ## 注意事项
 
-已知设备部分功能需要 **挂载开发者镜像**，又因为执行xctest（包括wda）时检查挂载镜像会造成**阻塞**问题，所以sib在 **1.3.7版本开始** 不再自动检查挂载状态与自动挂载。因此部分功能单独使用前需要手动挂载开发者镜像，可以使用 <a href="https://soniccloudorg.github.io/sib/sib-mount.html" target="_blank">这个指令</a> 自行挂载。
+已知设备部分功能需要 **挂载开发者镜像**，又因为执行xctest（包括wda）时检查挂载镜像会造成**阻塞**问题，所以sib在 **1.3.7版本开始** 不再自动检查挂载状态与自动挂载。因此部分功能单独使用前需要手动挂载开发者镜像，可以使用 <a href="https://felixyang007.github.io/matrixUserGuide/sib/sib-mount.html" target="_blank">这个指令</a> 自行挂载。
 
 目前已知挂载状态变更如下：
 1. 设备 **首次使用** 或 **重启** 后，挂载状态会被重置。

@@ -93,7 +93,7 @@ Docker部署仅 Ubuntu 可用！仅 Ubuntu 可用！仅 Ubuntu 可用！
 
 该方式将一次性部署 Agent 端以及所需环境。
 
-准备工作：Docker，Sonic 前后端部署完毕
+准备工作：Docker，Matrix 前后端部署完毕
 
 1. 从部署好的前端界面【设备中心】的【Agent 中心】新增 Agent，记录 Agent 的 Key。
 2. [点击这里](https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/docker-compose.yml) 下载最新的docker-compose.yml，参考注释修改里面的内容。（如加速链接失效，请自行前往 <a href="https://github.com/SonicCloudOrg/sonic-agent/releases" target="_black">这里</a> 下载）
@@ -116,7 +116,7 @@ docker-compose -f docker-compose-zh.yml up -d
 
 Q1: Mac上部署有什么注意的吗？
 
-A1: 需要信任Sonic的来源，不然部分插件无法正常启动。
+A1: 需要信任Matrix的来源，不然部分插件无法正常启动。
 1. 终端输入
 ```
 sudo spctl --master-disable

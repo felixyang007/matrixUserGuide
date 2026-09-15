@@ -5,7 +5,7 @@ contributors:
 
 # sonic-android-supply
 
-本文为Sonic原生ADB补充插件sonic-android-supply的介绍与原理简述。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-android-supply)
+本文为Matrix原生ADB补充插件sonic-android-supply的介绍与原理简述。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-android-supply)
 
 <div style="display: flex">
 <img src="https://img.shields.io/github/stars/SonicCloudOrg/sonic-android-supply?style=social">
@@ -21,7 +21,7 @@ contributors:
 
 ## 介绍
 
-**sonic-android-supply** 是Sonic平台扩展ADB功能的插件，用于远程连接、性能监控等等功能。更多功能正在加入中...
+**sonic-android-supply** 是Matrix平台扩展ADB功能的插件，用于远程连接、性能监控等等功能。更多功能正在加入中...
 
 ## 快速使用
 

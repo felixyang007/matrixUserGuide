@@ -15,8 +15,8 @@ Introduces the access methods of various types of robots.
 2. Click [Intelligent Group Assistant].
 3. Click [Add Robot].
 4. Select [Custom] robot.
-5. (Optional) Click [Add Signature] in the security settings, and the [Robot Key] of the Sonic platform appears below, copy the key and fill it in the project.
-6. Click the [Finish] button, and the robot will be added. The WebHook that appears at this time is the [Robot Hook] of the Sonic platform. Copy the WebHook and fill it in the project.
+5. (Optional) Click [Add Signature] in the security settings, and the [Robot Key] of the Matrix platform appears below, copy the key and fill it in the project.
+6. Click the [Finish] button, and the robot will be added. The WebHook that appears at this time is the [Robot Hook] of the Matrix platform. Copy the WebHook and fill it in the project.
 7. Done! The platform can push the message.
 
 ## Feishu group robot
@@ -25,8 +25,8 @@ Introduces the access methods of various types of robots.
 2. Click [Group Robots].
 3. Click [Add Robot].
 4. Select 【Custom Robot】.
-5. (Optional) Click [Signature Verification] in the security settings, and the [Robot Key] of the Sonic platform will appear, copy the key and fill it in the project.
-6. Click the [Finish] button, and the robot will be added. The WebHook that appears at this time is the [Robot Hook] of the Sonic platform. Copy the WebHook and fill it in the project.
+5. (Optional) Click [Signature Verification] in the security settings, and the [Robot Key] of the Matrix platform will appear, copy the key and fill it in the project.
+6. Click the [Finish] button, and the robot will be added. The WebHook that appears at this time is the [Robot Hook] of the Matrix platform. Copy the WebHook and fill it in the project.
 7. Done! The platform can push the message.
 
 ## Enterprise WeChat Robot
@@ -34,7 +34,7 @@ Introduces the access methods of various types of robots.
 1. Select the group chat where the robot needs to be sent, and click [Settings].
 2. Click [Add Robot].
 3. Click 【Create a new robot】.
-4. Click the [Finish] button, and the robot will be added. The WebHook that appears at this time is the [Robot Hook] of the Sonic platform. Copy the WebHook and fill it in the project.
+4. Click the [Finish] button, and the robot will be added. The WebHook that appears at this time is the [Robot Hook] of the Matrix platform. Copy the WebHook and fill it in the project.
 5. Done! The platform can push the message.
 
 ## Friends Space Robot
@@ -42,7 +42,7 @@ Introduces the access methods of various types of robots.
 1. Select the group to send the robot to, enter the group, and click [Settings]
 2. Click [Group Robots].
 3. Click [Add Robot] -> [Custom Robot] (you can also select an existing robot).
-4. Click the [Add] button, and the robot is added. The webHook that appears at this time is the [Robot Hook] of the Sonic platform. Copy the webHook and fill it in the project.
+4. Click the [Add] button, and the robot is added. The webHook that appears at this time is the [Robot Hook] of the Matrix platform. Copy the webHook and fill it in the project.
 5. Done! The platform can push the message.
 
 ## Telegram Bot
@@ -51,7 +51,7 @@ Introduces the access methods of various types of robots.
 2. Add the robot to the specified chat or chat group in Telegram.
 3. Use `https://api.telegram.org/bot{Token}/getUpdates` link to get chatId
 4. Replace the Token and chatId of the following link `https://api.telegram.org/bot{Token}/sendMessage?chat_id={chatId}` to form a webHook.
-5. The formed webHook is the [Robot Hook] of the Sonic platform, copy the webHook and fill it in the project.
+5. The formed webHook is the [Robot Hook] of the Matrix platform, copy the webHook and fill it in the project.
 6. Done! The platform can push the message.
 7. [Telegram Bot API Reference Link](https://core.telegram.org/bots/api)
 
@@ -60,7 +60,7 @@ Introduces the access methods of various types of robots.
 1. Log in to [Line Notify](https://notify-bot.line.me/doc/en/) and enter the personal page.
 2. Click [Issue Token] and set the name and select the group to receive notifications.
 3. Press Release to get 【Token】.
-4. The obtained Token is the [Robot Hook] of the Sonic platform, copy the Token and fill it in the project.
+4. The obtained Token is the [Robot Hook] of the Matrix platform, copy the Token and fill it in the project.
 5. Done! The platform can push the message.
 6. [Line Notify API reference link](https://notify-bot.line.me/doc/en/)
 

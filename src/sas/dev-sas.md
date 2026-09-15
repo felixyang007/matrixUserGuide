@@ -5,7 +5,7 @@ contributors:
 
 # sonic-android-supply
 
-本文为Sonic原生ADB补充插件sonic-android-supply的开发文档。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-android-supply)
+本文为Matrix原生ADB补充插件sonic-android-supply的开发文档。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-android-supply)
 
 <div style="display: flex">
 <img src="https://img.shields.io/github/stars/SonicCloudOrg/sonic-android-supply?style=social">
@@ -29,6 +29,6 @@ sonic-android-supply以GoLang作为开发语言。
 5. 执行git clone指令，将您的仓库代码克隆到本地。
 6. 等待依赖下载完毕。
 7. 🎉恭喜！您已经可以开始开发了！
-8. 开发完毕后，push到自己的仓库，然后可以给Sonic原仓库提起pr哦！随后即可成为Sonic贡献者！（建议贡献前先开启issue讨论，防止跟组织计划进度有冲突哦）
+8. 开发完毕后，push到自己的仓库，然后可以给Matrix原仓库提起pr哦！随后即可成为Matrix贡献者！（建议贡献前先开启issue讨论，防止跟组织计划进度有冲突哦）
 9. （附）如需新增命令，还需要额外安装cobra工具。
 

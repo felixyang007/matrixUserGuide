@@ -8,14 +8,6 @@
       <!-- 文章贡献者列表 -->
       <ContributorList />
     </template>
-
-    <template #aside-outline-after>
-      <DocAsideADs />
-    </template>
-
-    <template #sidebar-nav-before>
-      <DocAsideSponsors />
-    </template>
   </Layout>
 </template>
 
@@ -25,8 +17,6 @@ import DefaultTheme from 'vitepress/theme'
 import { useData } from 'vitepress'
 import { updateI18nLanguage } from '../locales/useLocale'
 import ContributorList from '../components/ContributorList.vue'
-import DocAsideSponsors from '../components/DocAsideSponsors.vue'
-import DocAsideADs from '../components/DocAsideADs.vue'
 import QuestionFloat from '../components/QuestionFloat.vue'
 
 const { Layout } = DefaultTheme

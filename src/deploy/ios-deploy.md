@@ -7,7 +7,7 @@ contributors:
 
 # iOS 设备接入
 
-本文将介绍 iOS 设备接入 Sonic 的准备工作。
+本文将介绍 iOS 设备接入 Matrix 的准备工作。
 
 ## 接入通用配置
 
@@ -32,7 +32,7 @@ iOS16 需要手动开启开发者选项。
 该功能需要v2.7.1及以上版本
 :::
 
-目前Sonic还未兼容Windows平台和Linux平台的iOS17及以上版本设备接入，因此iOS17及以上机器`必须`接入到部署在MacOS的Agent上。
+目前Matrix还未兼容Windows平台和Linux平台的iOS17及以上版本设备接入，因此iOS17及以上机器`必须`接入到部署在MacOS的Agent上。
 
 1. Agent需要安装`iproxy`和`ideviceinstaller`
 
@@ -59,7 +59,7 @@ xcodebuild -project 你上面填的路径 -scheme WebDriverAgentRunner -destinat
 :::
 准备工作：Mac、Xcode、开发者账户。
 
-1. 拉取 Sonic组织的WebDriverAgent 项目。（该项目与appium/WebDriverAgent一致）
+1. 拉取 Matrix组织的WebDriverAgent 项目。（该项目与appium/WebDriverAgent一致）
 
 ```bash
 git clone https://github.com/SonicCloudOrg/sonic-ios-wda.git

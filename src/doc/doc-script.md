@@ -7,13 +7,13 @@ contributors:
 
 # 自定义脚本
 
-使用自定义脚本执行UI自动化。（该功能需升级至Sonic v2.0.0版本）
+使用自定义脚本执行UI自动化。（该功能需升级至Matrix v2.0.0版本）
 
 ## 一、Groovy(Java)脚本 （推荐🔥）
 
 ### 能力介绍
 
-::: tip Sonic官方推荐原因
+::: tip Matrix官方推荐原因
 1. 可以直接使用Agent所有内置函数与变量。
 2. Groovy引擎可以兼容Java语言，能与Java很好的结合，可以直接运行Java代码或者Groovy与Java混用。
 3. Groovy语法简单，容易扩展，学习门槛低。
@@ -29,7 +29,7 @@ contributors:
 2. androidDriver，可以操作UIAutomator2-Server
 3. iosDriver，可以操作Wda
 4. 全局参数，可以对全局参数进行存取
-5. Sonic的自定义步骤，可以直接复用
+5. Matrix的自定义步骤，可以直接复用
 6. 其他，包括PocoDriver、设备信息等等
 ::: tip 更多内置方法可查看
 [AndroidStepHandler](https://github.com/SonicCloudOrg/sonic-agent/blob/main/src/main/java/org/cloud/sonic/agent/tests/handlers/AndroidStepHandler.java)
@@ -116,7 +116,7 @@ assertEquals(1+1,2)
 
 ### 退出Driver
 
-如果在您的第三方工具中有基于instrument的框架（例如fastbot、uiautomator2-python、poco-service等等），会跟Sonic已有进程冲突导致阻塞状态，这时我们可以先停止Sonic的Driver。
+如果在您的第三方工具中有基于instrument的框架（例如fastbot、uiautomator2-python、poco-service等等），会跟Matrix已有进程冲突导致阻塞状态，这时我们可以先停止Matrix的Driver。
 
 #### Android: 
 
@@ -240,7 +240,7 @@ testLong()
 #### 执行fastbot
 下方展示了如何执行fastbot并将日志持续输出到测试报告，注意：执行前确保设备上有fastbot相关的jar哦，详情可以查看fastbot文档。
 
-因为fastbot底层与uia2的instrumentation有冲突（虽然Sonic后续会做处理，但是最好还是避免冲突），所以先执行了closeDriver()，运行完毕后，再重新startDriver()
+因为fastbot底层与uia2的instrumentation有冲突（虽然Matrix后续会做处理，但是最好还是避免冲突），所以先执行了closeDriver()，运行完毕后，再重新startDriver()
 ```groovy
 import org.cloud.sonic.agent.bridge.android.AndroidDeviceBridgeTool;
 import org.cloud.sonic.agent.tests.LogUtil;
@@ -349,7 +349,7 @@ set PYTHONIOENCODING=UTF-8
 
 ### 可用参数
 
-无论安卓还是iOS，Sonic会传递四个参数到Python脚本中，arg依次分别为：
+无论安卓还是iOS，Matrix会传递四个参数到Python脚本中，arg依次分别为：
 1. sessionId。安卓为uia2的sessionId，iOS为wda的sessionId。
 2. 设备udId。
 3. 全局参数Json字符串。
@@ -357,7 +357,7 @@ set PYTHONIOENCODING=UTF-8
 
 ### 退出Driver
 
-如果在您的第三方工具中有基于instrument的框架（例如fastbot、uiautomator2-python、poco-service等等），会跟Sonic已有进程冲突导致阻塞状态，这时我们可以先停止Sonic的Driver。
+如果在您的第三方工具中有基于instrument的框架（例如fastbot、uiautomator2-python、poco-service等等），会跟Matrix已有进程冲突导致阻塞状态，这时我们可以先停止Matrix的Driver。
 
 #### Android: 
 
@@ -371,9 +371,9 @@ os.system("adb -s {udId} am force-stop io.appium.uiautomator2.server.test".forma
 
 ### 示例脚本展示
 
-#### 直接用Sonic已启动的appium-uiautomator2-server测试
+#### 直接用Matrix已启动的appium-uiautomator2-server测试
 
-以下是直接用Sonic已启动的appium-uiautomator2-server测试的示例脚本。
+以下是直接用Matrix已启动的appium-uiautomator2-server测试的示例脚本。
 ```
 pip install -U sonic-uia2-client
 ```
@@ -420,7 +420,7 @@ if __name__ == '__main__':
 
 ## 使用规范与建议
 
-为了减少在使用时的维护成本，Sonic组织推荐脚本管理方式如下：
+为了减少在使用时的维护成本，Matrix组织推荐脚本管理方式如下：
 
 1. 将通用的方法/函数可以保存到【脚本模块管理】。
 2. 使用脚本时使用导入模块，将方法/函数追加到当前脚本中，并引用。

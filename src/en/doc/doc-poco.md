@@ -9,7 +9,7 @@ Precautions and teaching of steps related to using POCO elements.
 
 ## Precautions and introduction
 
-The engines currently supported by Sonic for game automation are:
+The engines currently supported by Matrix for game automation are:
 
 1. Unity3D
 2. UE4
@@ -105,7 +105,7 @@ Root > Camera > Button > Text
 
 Some applications do not support full-screen display, resulting in black borders and positioning deviation.
 
-Sonic has been compatible with the non-full-screen offset of most models automatically. If the automatic compatibility effect is not friendly enough:
+Matrix has been compatible with the non-full-screen offset of most models automatically. If the automatic compatibility effect is not friendly enough:
 
 1. Close the **virtual keyboard** of the phone first, and check whether the application can occupy the full screen.
 2. If the black border still appears, you can use the [Set Offset] step.

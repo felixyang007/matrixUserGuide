@@ -5,11 +5,11 @@ contributors:
 
 # Iterate the element list
 
-The sublist element of the iterator element. (This function needs to be upgraded to Sonic v2.2.0 version)
+The sublist element of the iterator element. (This function needs to be upgraded to Matrix v2.2.0 version)
 
 ## Features
 
-When Sonic performs UI automation, if you need to operate list type elements, it will be a headache, unless you use custom scripts, otherwise you need to add elements one by one to operate.
+When Matrix performs UI automation, if you need to operate list type elements, it will be a headache, unless you use custom scripts, otherwise you need to add elements one by one to operate.
 
 ![iter-1](./images/iter-1.png)
 

@@ -6,7 +6,7 @@ contributors:
 
 # 用户配置
 
-管理 Sonic 用户对应的角色信息
+管理 Matrix 用户对应的角色信息
 
 
 

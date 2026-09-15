@@ -17,7 +17,7 @@ How to get it:
 
 ## POCO elements
 
-The engines currently supported by Sonic for game automation are:
+The engines currently supported by Matrix for game automation are:
 1. Unity3D
 2. UE4
 3. Egret

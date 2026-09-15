@@ -4,7 +4,7 @@ contributors:
 ---
 
 # sonic-go-mitmproxy
-本文为Sonic网络抓包代理sonic-go-mitmproxy的开发文档。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-go-mitmproxy)
+本文为Matrix网络抓包代理sonic-go-mitmproxy的开发文档。 👉[Github地址](https://github.com/SonicCloudOrg/sonic-go-mitmproxy)
 
 <div style="display: flex">
 <img src="https://img.shields.io/github/stars/SonicCloudOrg/sonic-go-mitmproxy?style=social">
@@ -21,5 +21,5 @@ contributors:
 
 建议可以直接前往[go-mitmproxy](https://github.com/lqqyt2423/go-mitmproxy)建设。
 
-Sonic组织会在新贡献基础上加入二开内容后同步更新。
+Matrix组织会在新贡献基础上加入二开内容后同步更新。
 

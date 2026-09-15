@@ -22,7 +22,7 @@ contributors:
 
 ### 拖拽安装
 
-直接将你的App拖拽到拖拽框内，即可上传到Sonic安装。
+直接将你的App拖拽到拖拽框内，即可上传到Matrix安装。
 
 ### URL安装
 

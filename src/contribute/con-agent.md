@@ -36,7 +36,7 @@ contributors:
 5. 如果idea启动，记得更改pom.xml中properties.platform的平台。（旧版本代码只需idea选择对应profile）
 6. 启动AgentApplication。
 7. 恭喜，搭建完毕！
-8. 开发完毕后，push到自己的仓库，然后可以给Sonic原仓库提起pr哦！（建议贡献前先开启issue讨论，防止跟组织计划进度有冲突哦）
+8. 开发完毕后，push到自己的仓库，然后可以给Matrix原仓库提起pr哦！（建议贡献前先开启issue讨论，防止跟组织计划进度有冲突哦）
 
 #### 打包
 
@@ -63,7 +63,7 @@ mvn package
 5. 如果idea启动，记得更改pom.xml中properties.platform的平台。（旧版本代码只需idea选择对应profile）
 6. 启动AgentApplication。
 7. 恭喜，搭建完毕！
-8. 开发完毕后，push到自己的仓库，然后可以给Sonic原仓库提起pr哦！（建议贡献前先开启issue讨论，防止跟组织计划进度有冲突哦）
+8. 开发完毕后，push到自己的仓库，然后可以给Matrix原仓库提起pr哦！（建议贡献前先开启issue讨论，防止跟组织计划进度有冲突哦）
 
 #### 打包
 

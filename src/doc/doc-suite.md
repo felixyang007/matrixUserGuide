@@ -43,13 +43,13 @@ contributors:
 ::: tip
 该功能仅在v2.1.0后可用
 :::
-iOS通过 [sib perfmon](https://soniccloudorg.github.io/sib/sib-perf.html) 进行性能采集。
+iOS通过 [sib perfmon](https://felixyang007.github.io/matrixUserGuide/sib/sib-perf.html) 进行性能采集。
 
 ### 安卓
 ::: tip
 该功能仅在v2.2.0后可用
 :::
-安卓通过 [sas perfmon](https://soniccloudorg.github.io/sas/re-sas.html) 进行性能采集。
+安卓通过 [sas perfmon](https://felixyang007.github.io/matrixUserGuide/sas/re-sas.html) 进行性能采集。
 
 ## 机器人通知
 

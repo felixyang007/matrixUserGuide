@@ -102,7 +102,7 @@
 
   <section-box
     title="设备充电保护落地效益"
-    divider-content="Sonic实验室结合内测用户三个月实验数据"
+    divider-content="Matrix实验室结合内测用户三个月实验数据"
   >
     <div class="profit-container">
       <el-descriptions direction="vertical" :column="1" size="large" border>
@@ -130,7 +130,7 @@
     <el-footer style="margin-top: 75px">
       <el-divider></el-divider>
       <div style="font-size: 10px; color: #909399">
-        上述硬件产品（部分含专利）不影响Sonic平台正常使用，仅为搭建硬件环境提供采购选择，Sonic平台仍然保持永久开源、免费。
+        上述硬件产品（部分含专利）不影响Matrix平台正常使用，仅为搭建硬件环境提供采购选择，Matrix平台仍然保持永久开源、免费。
       </div>
       <div style="margin-top: 5px">
         <el-link
@@ -141,7 +141,7 @@
           官方邮箱
         </el-link>
         <el-link
-          href="https://soniccloudorg.github.io/wechat.jpg"
+          href="https://felixyang007.github.io/matrixUserGuide/wechat.jpg"
           target="_blank"
           type="primary"
           style="margin-left: 20px"
@@ -216,7 +216,7 @@ const hubDes = ref([
   '采用工业级铁质外壳',
   '3C级配置电源，保证电源供给防异常断电',
   '程控USB集线器，单独控制USB口通断电',
-  '附赠二进制控制程序，搭配Sonic可视化界面',
+  '附赠二进制控制程序，搭配Matrix可视化界面',
   '搭载智能芯片，防电流过冲过压',
   '附带蓝色指示灯，通断情况一目了然',
   '10个USB3.0口，传输速度快人一步',
@@ -327,12 +327,12 @@ const talk = ref([
   {
     ava: you,
     name: '友空间团队测试专家',
-    msg: 'PAWAO全套硬件方案考虑非常全面，整体体验很不错，与Sonic平台契合度也很高。使用下来设备鼓包率大大下降，长时间测试与使用能保持电池健康的温度。手机管理，监控，使用变得更快捷，更有效！'
+    msg: 'PAWAO全套硬件方案考虑非常全面，整体体验很不错，与Matrix平台契合度也很高。使用下来设备鼓包率大大下降，长时间测试与使用能保持电池健康的温度。手机管理，监控，使用变得更快捷，更有效！'
   },
   {
     ava: xinyang,
     name: '新氧技术中心-平台研发部',
-    msg: '非常专业的硬件设备，是搭建云测机房的不二选择。不仅能很完美地与Sonic云测平台结合，而且技术售后也非常到位，考虑到的实际情况非常细心，期待更深入的合作'
+    msg: '非常专业的硬件设备，是搭建云测机房的不二选择。不仅能很完美地与Matrix云测平台结合，而且技术售后也非常到位，考虑到的实际情况非常细心，期待更深入的合作'
   },
   {
     ava: taole,
@@ -342,7 +342,7 @@ const talk = ref([
   {
     ava: eco,
     name: '翼鸥产品研发中心-测试团队',
-    msg: '考虑非常周到的硬件套装，让中小企业打造自己专属的云测设施变为可能！搭配Sonic云测平台对设备进行软硬件的监控与控制非常便利，祝越来越好。'
+    msg: '考虑非常周到的硬件套装，让中小企业打造自己专属的云测设施变为可能！搭配Matrix云测平台对设备进行软硬件的监控与控制非常便利，祝越来越好。'
   },
   {
     ava: user,
@@ -352,7 +352,7 @@ const talk = ref([
   {
     ava: th8,
     name: '望尘科技测试部负责人',
-    msg: 'PAWAO提供的一站式硬件套餐与Sonic开源平台配合，让中小企业能快速搭建属于自己的云真机基础平台，解决了公司测试机多管理难/使用效率低等痛点。其中散热/控温/断电功能也解决了设备长期使用电池鼓包甚至起火的后顾之忧。'
+    msg: 'PAWAO提供的一站式硬件套餐与Matrix开源平台配合，让中小企业能快速搭建属于自己的云真机基础平台，解决了公司测试机多管理难/使用效率低等痛点。其中散热/控温/断电功能也解决了设备长期使用电池鼓包甚至起火的后顾之忧。'
   },
 ])
 </script>

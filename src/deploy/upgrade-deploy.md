@@ -10,7 +10,7 @@ contributors:
 
 ## 关于版本规则变动
 
-v2.0.0-release 起，Sonic 版本规则更改如下：
+v2.0.0-release 起，Matrix 版本规则更改如下：
 
 1. 第一位是大版本号，基本为一年一更
 2. 第二位是有新功能合入就会加 1（特性版本，一般月更）
@@ -28,8 +28,8 @@ v2.0.0-release 起，Sonic 版本规则更改如下：
 
 ## 从 v2.5.x 升级到 v2.7.x
 1. 升级前先备份Mysql数据库。
-2. 直接前往 <a href="https://soniccloudorg.github.io/deploy/back-end-deploy.html" target="_blank">这里</a> 下载最新版本zip，down集群后重新up即可。如果更换了部署目录，旧目录下的`keepFiles`、`imageFiles`、`recordFiles`、`packageFiles`文件夹的内容也要同步到新目录下（部署文档含中国大陆加速镜像部署方式）
-3. Agent可前往 <a href="https://soniccloudorg.github.io/deploy/agent-deploy.html" target="_blank">这里</a> 下载zip后解压，更新需替换旧版本plugins文件夹与jar文件。Docker版Agent与server同理，前往 <a href="https://soniccloudorg.github.io/deploy/agent-deploy.html" target="_blank">这里</a> 重新下载镜像部署即可。（部署文档含中国大陆加速镜像部署方式）
+2. 直接前往 <a href="https://felixyang007.github.io/matrixUserGuide/deploy/back-end-deploy.html" target="_blank">这里</a> 下载最新版本zip，down集群后重新up即可。如果更换了部署目录，旧目录下的`keepFiles`、`imageFiles`、`recordFiles`、`packageFiles`文件夹的内容也要同步到新目录下（部署文档含中国大陆加速镜像部署方式）
+3. Agent可前往 <a href="https://felixyang007.github.io/matrixUserGuide/deploy/agent-deploy.html" target="_blank">这里</a> 下载zip后解压，更新需替换旧版本plugins文件夹与jar文件。Docker版Agent与server同理，前往 <a href="https://felixyang007.github.io/matrixUserGuide/deploy/agent-deploy.html" target="_blank">这里</a> 重新下载镜像部署即可。（部署文档含中国大陆加速镜像部署方式）
 4. `v2.7.1` Agent的`config/application-sonic-agent.yml`新增了`wda-xcode-project-path`配置用于iOS高版本兼容，可前往iOS接入指南查看。
 
 ## 从 v2.3.x ~ v2.4.x 升级到 v2.5.x
@@ -37,14 +37,14 @@ v2.0.0-release 起，Sonic 版本规则更改如下：
 升级至`v2.5.3`时，为了降低用户部署成本，在Agent中内置了adb程序，config配置难度也降低，可前往部署文档查看。
 :::
 1. 升级前先备份Mysql数据库。
-2. 直接前往 <a href="https://soniccloudorg.github.io/deploy/back-end-deploy.html" target="_blank">这里</a> 下载最新版本zip，down集群后重新up即可。如果更换了部署目录，旧目录下的`keepFiles`、`imageFiles`、`recordFiles`、`packageFiles`文件夹的内容也要同步到新目录下（部署文档含中国大陆加速镜像部署方式）
-3. Agent jar部署的jdk要求提升至 **jdk17**，可前往 <a href="https://soniccloudorg.github.io/deploy/agent-deploy.html" target="_blank">这里</a> 下载zip后解压，更新需替换旧版本plugins文件夹与jar文件。Docker版Agent与server同理，前往 <a href="https://soniccloudorg.github.io/deploy/agent-deploy.html" target="_blank">这里</a> 重新下载镜像部署即可。（部署文档含中国大陆加速镜像部署方式）
+2. 直接前往 <a href="https://felixyang007.github.io/matrixUserGuide/deploy/back-end-deploy.html" target="_blank">这里</a> 下载最新版本zip，down集群后重新up即可。如果更换了部署目录，旧目录下的`keepFiles`、`imageFiles`、`recordFiles`、`packageFiles`文件夹的内容也要同步到新目录下（部署文档含中国大陆加速镜像部署方式）
+3. Agent jar部署的jdk要求提升至 **jdk17**，可前往 <a href="https://felixyang007.github.io/matrixUserGuide/deploy/agent-deploy.html" target="_blank">这里</a> 下载zip后解压，更新需替换旧版本plugins文件夹与jar文件。Docker版Agent与server同理，前往 <a href="https://felixyang007.github.io/matrixUserGuide/deploy/agent-deploy.html" target="_blank">这里</a> 重新下载镜像部署即可。（部署文档含中国大陆加速镜像部署方式）
 4. Eureka默认端口从9090变更至8761
 
 ## 从 v1.4.1-release 以上版本 升级到 v2.0.x ~ v2.3.x
 1. 升级前先备份Mysql数据库。
-2. 直接前往 <a href="https://soniccloudorg.github.io/deploy/back-end-deploy.html" target="_blank">这里</a> 下载最新版本zip，down集群后重新up即可。如果更换了部署目录，旧目录下的`keepFiles`、`imageFiles`、`recordFiles`、`packageFiles`文件夹的内容也要同步到新目录下（部署文档含中国大陆加速镜像部署方式）
-3. jar方式部署的Agent前往 <a href="https://soniccloudorg.github.io/deploy/agent-deploy.html" target="_blank">这里</a> 下载zip后解压，更新需替换旧版本plugins文件夹与jar文件。Docker版Agent与server同理，前往 <a href="https://soniccloudorg.github.io/deploy/agent-deploy.html" target="_blank">这里</a> 重新下载镜像部署即可。（部署文档含中国大陆加速镜像部署方式）
+2. 直接前往 <a href="https://felixyang007.github.io/matrixUserGuide/deploy/back-end-deploy.html" target="_blank">这里</a> 下载最新版本zip，down集群后重新up即可。如果更换了部署目录，旧目录下的`keepFiles`、`imageFiles`、`recordFiles`、`packageFiles`文件夹的内容也要同步到新目录下（部署文档含中国大陆加速镜像部署方式）
+3. jar方式部署的Agent前往 <a href="https://felixyang007.github.io/matrixUserGuide/deploy/agent-deploy.html" target="_blank">这里</a> 下载zip后解压，更新需替换旧版本plugins文件夹与jar文件。Docker版Agent与server同理，前往 <a href="https://felixyang007.github.io/matrixUserGuide/deploy/agent-deploy.html" target="_blank">这里</a> 重新下载镜像部署即可。（部署文档含中国大陆加速镜像部署方式）
 
 ::: tip TIP
 ---
@@ -56,7 +56,7 @@ v2.0.0-release 起，Sonic 版本规则更改如下：
 ---
 从 v1.5.0或以下版本 升级需注意：
 1. env 文件最下方新增 LDAP_OBJECT_CLASS=person
-2. Agent 端的 jar 部署方式：已知部分 JDK 出现不兼容的问题，Sonic 官方推荐使用 JDK15，可以前往 [这里](https://docs.aws.amazon.com/corretto/latest/corretto-15-ug/downloads-list.html) 安装下载。
+2. Agent 端的 jar 部署方式：已知部分 JDK 出现不兼容的问题，Matrix 官方推荐使用 JDK15，可以前往 [这里](https://docs.aws.amazon.com/corretto/latest/corretto-15-ug/downloads-list.html) 安装下载。
 3. Agent 的 config/application-sonic-agent.yml 字段有改动，需参考最新版 yml 备注进行配置。
 4. Agent 本地环境不再依赖 node、npm、谷歌浏览器、chromedriver，可以卸载来减少 Agent 空间。
 :::

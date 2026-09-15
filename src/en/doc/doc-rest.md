@@ -5,17 +5,17 @@ contributors:
 
 # REST API
 
-Here is a tutorial on using Sonic's Http protocol Rest API documentation.
+Here is a tutorial on using Matrix's Http protocol Rest API documentation.
 
 ## view documentation
 
-1. Click [About Sonic] in the avatar floating box in the upper right corner of the page
+1. Click [About Matrix] in the avatar floating box in the upper right corner of the page
 2. Click REST API
 3. You can enter the document page
 
 ## Debug Http REST API online
 1. Search for the /login request and log in
-2. Get the return value after login, this is your Token. (You can also directly generate Token directly in the Sonic Avatar drop-down box)
+2. Get the return value after login, this is your Token. (You can also directly generate Token directly in the Matrix Avatar drop-down box)
 3. Go to [Document Management] on the API page
 4. Click [Global Parameters]
 5. Add a new global parameter named SonicToken, the value is your Token, and the type is header.
@@ -25,7 +25,7 @@ Here is a tutorial on using Sonic's Http protocol Rest API documentation.
 
 ### Occupy the device and obtain remote debugging information through the REST API
 ::: tip
-This function needs to be upgraded to Sonic v2.5.0
+This function needs to be upgraded to Matrix v2.5.0
 :::
 1. Refer to the documentation of the REST API to initiate the corresponding HTTP request
 2. After the request, the device will enter the `occupied` state, and the available time will be affected by the maximum occupied time of the background management center. Remember to initiate the **release device** request again after use.
@@ -44,7 +44,7 @@ This function needs to be upgraded to Sonic v2.5.0
 
 ### Release device via REST API
 ::: tip
-This function needs to be upgraded to Sonic v2.5.0, and used in conjunction with `Occupy the device and obtain remote debugging information through the REST API`.
+This function needs to be upgraded to Matrix v2.5.0, and used in conjunction with `Occupy the device and obtain remote debugging information through the REST API`.
 :::
 1. Refer to the documentation of the REST API to initiate the corresponding HTTP request
 > ${baseURL}/server/api/controller/devices/release?udId=xxxx
