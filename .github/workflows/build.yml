@@ -28,32 +28,32 @@ jobs:
       - uses: oprypin/find-latest-tag@v1
         id: sas-latest-tag
         with:
-          repository: SonicCloudOrg/sonic-android-supply
+          repository: felixyang007/matrix-android-supply
           sort-tags: false
       - uses: oprypin/find-latest-tag@v1
         id: saa-latest-tag
         with:
-          repository: SonicCloudOrg/sonic-android-apk
+          repository: felixyang007/matrix-android-apk
           sort-tags: false
       - uses: oprypin/find-latest-tag@v1
         id: sib-latest-tag
         with:
-          repository: SonicCloudOrg/sonic-ios-bridge
+          repository: felixyang007/matrix-ios-bridge
           sort-tags: false
       - uses: oprypin/find-latest-tag@v1
         id: sgm-latest-tag
         with:
-          repository: SonicCloudOrg/sonic-go-mitmproxy
+          repository: felixyang007/matrix-go-mitmproxy
           sort-tags: false
       - uses: oprypin/find-latest-tag@v1
         id: sdc-latest-tag
         with:
-          repository: SonicCloudOrg/sonic-driver-core
+          repository: felixyang007/matrix-driver-core
           sort-tags: false
       - uses: oprypin/find-latest-tag@v1
         id: ser-latest-tag
         with:
-          repository: SonicCloudOrg/sonic-server
+          repository: felixyang007/matrix-server
           sort-tags: false
       - name: JSON to variables
         uses: antifree/json-to-variables@v1.0.1
