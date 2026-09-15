@@ -16,6 +16,7 @@ enum LocalePathMap {
 }
 
 export default {
+  base: '/matrixUserGuide/',
   locales: {
     [LocalePathMap.CN]: {
       lang: LOCALE.ZH_CN,
