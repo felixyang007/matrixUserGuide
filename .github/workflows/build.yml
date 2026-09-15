@@ -118,10 +118,10 @@ jobs:
           sed -i "s/${ser_old_ver_sub}/${ser_new_ver}/g" src/deploy/back-end-deploy.md
           sed -i "s/${ser_old_ver_sub}/${ser_new_ver}/g" src/en/deploy/agent-deploy.md
           sed -i "s/${ser_old_ver_sub}/${ser_new_ver}/g" src/en/deploy/back-end-deploy.md
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v2
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 20.x
           cache: 'npm'
       - run: npm install
       - run: npm run build
