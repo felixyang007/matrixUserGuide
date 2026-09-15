@@ -32,6 +32,10 @@ const getCon = (...name: string[]) => {
 
 const cons: Cons = [
   {
+    name: 'felixyang007',
+    avatar: '304925676'
+  },
+  {
     name: 'ZhouYixun',
     avatar: '56339314'
   },
@@ -226,6 +230,74 @@ const cons: Cons = [
 ]
 
 export default [
+  {
+    version: "v2.7.5",
+    time: "2026/9/15",
+    des: "Matrix 品牌清理。",
+    fix: [
+      {
+        title: "移除 README 中的 Sonic 品牌与赞助商信息",
+        url: "https://github.com/felixyang007/matrix-agent/commit/71b4654"
+      },
+    ],
+    con: getCon("felixyang007")
+  },
+  {
+    version: "v2.7.4",
+    time: "2026/9/14",
+    des: "新增 Xcode 模拟器接入，修复 CI 与私有镜像源。",
+    feat: [
+      {
+        title: "接入 Xcode 模拟器（simctl 后端：发现/上报/看屏/装App/跑测试/日志/定位/每任务全新实例）",
+        url: "https://github.com/felixyang007/matrix-agent/commit/e52a057"
+      },
+      {
+        title: "新增 iOS 模拟器接入部署文档",
+        url: "https://github.com/felixyang007/matrix-agent/commit/5a364f9"
+      },
+      {
+        title: "sonic-ios-wda 改名 matrix-ios-wda 并指向私有 fork（已升级 appium 16.12.8，适配 Xcode 26）",
+        url: "https://github.com/felixyang007/matrix-agent/commit/ac118fc"
+      },
+    ],
+    fix: [
+      {
+        title: "修复 CI：setup-java v2 升级 v4（解决 Actions cache 400）",
+        url: "https://github.com/felixyang007/matrix-agent/commit/8173f86"
+      },
+      {
+        title: "sas/sgm/sib/saa 下载镜像到 felixyang007 forks（上游归档后 release 资产仍可用）",
+        url: "https://github.com/felixyang007/matrix-agent/commit/8f368e9"
+      },
+    ],
+    con: getCon("felixyang007")
+  },
+  {
+    version: "v2.7.3",
+    time: "2026/9/4",
+    des: "Matrix 首个版本：Android 工具链升级与投屏稳定性修复。",
+    feat: [
+      {
+        title: "uiautomator2-server 5.7.4 升级到 10.6.2（自维护 matrix fork，移植 7 个 legacy touch 端点）",
+        url: "https://github.com/felixyang007/matrix-agent/commit/1bec03b"
+      },
+      {
+        title: "adb 升级到官方 platform-tools r37.0.1（统一版本，避免 adb server 互杀）",
+        url: "https://github.com/felixyang007/matrix-agent/commit/9e8e857"
+      },
+      {
+        title: "非技术用户交互式 Agent 部署指南（Web 版）",
+        url: "https://github.com/felixyang007/matrix-agent/commit/56136ac"
+      },
+    ],
+    fix: [
+      {
+        title: "修复 Android 14+ 投屏黑屏（scrcpy 补丁固化进发布包 + 一键 patch 工具）",
+        url: "https://github.com/felixyang007/matrix-agent/commit/941707a"
+      },
+    ],
+    con: getCon("felixyang007")
+  },
   {
     version: "v2.7.2",
     time: "2024/11/4",
