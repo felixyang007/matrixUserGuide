@@ -12,24 +12,6 @@ const nav = [
     ]
   },
   {
-    text: '周边生态',
-    items: [
-      {
-        items: [
-          {text: 'sonic-ios-bridge', link: '/sib/re-sib'},
-          {text: 'sonic-android-apk', link: '/saa/re-saa'},
-          {text: 'sonic-driver-core', link: '/sdc/re-sdc'},
-          {text: 'sonic-ci-helper-plugin', link: '/sch/re-sch'},
-          {text: 'sonic-go-mitmproxy', link: '/sgm/re-sgm'},
-          {text: 'sonic-ios-webkit-adapter', link: '/siwa/re-siwa'},
-          {text: 'sonic-android-supply', link: '/sas/re-sas'},
-          {text: 'sonic-uiautomator2-python-client', link: '/supc/re-supc'},
-          {text: 'sonic-vision-core', link: '/svc/re-svc'}
-        ]
-      }
-    ]
-  },
-  {
     text: '版本记录',
     link: '/version-record'
   },
