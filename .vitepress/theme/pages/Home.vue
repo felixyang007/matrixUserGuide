@@ -21,7 +21,7 @@
           type="primary"
           size="large"
           round
-          @click="router.go('/deploy/back-end-deploy')"
+          @click="router.go('/doc/doc-use')"
         >
           马上使用
         </el-button>
