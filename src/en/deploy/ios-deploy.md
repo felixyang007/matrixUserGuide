@@ -65,7 +65,9 @@ Preparations: Mac, Xcode, developer account.
 1. Pull the WebDriverAgent project of Matrix. (This project is same as appium/WebDriverAgent.)
 
 ```bash
-git clone https://github.com/SonicCloudOrg/sonic-ios-wda.git
+# private repo: use HTTPS if SSH is not configured (prompts GitHub login)
+git clone git@github.com:felixyang007/matrix-ios-wda.git
+# or HTTPS: git clone https://github.com/felixyang007/matrix-ios-wda.git
 ```
 
 2. Change the Signing Team in **WebDriverAgentLib** and **WebDriverAgentRunner** to your own developer account.

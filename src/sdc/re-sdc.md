@@ -24,8 +24,8 @@ contributors:
 
 sonic-driver-core是Matrix UI自动化核心，主要直接通过与 
 
-1. [appium-uiautomator2-server](https://github.com/SonicCloudOrg/sonic-appium-uiautomator2-server) 
-2. [WebDriverAgent](https://github.com/SonicCloudOrg/sonic-ios-wda) 
+1. [appium-uiautomator2-server](https://github.com/felixyang007/matrix-appium-uiautomator2-server) 
+2. [WebDriverAgent](https://github.com/felixyang007/matrix-ios-wda) 
 3. [Poco-SDK](https://github.com/SonicCloudOrg/sonic-sdk-poco) 
 
 通信达到自动化效果，减少通信过程中的时延与消耗。

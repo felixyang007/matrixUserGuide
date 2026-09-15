@@ -62,7 +62,9 @@ xcodebuild -project 你上面填的路径 -scheme WebDriverAgentRunner -destinat
 1. 拉取 Matrix组织的WebDriverAgent 项目。（该项目与appium/WebDriverAgent一致）
 
 ```bash
-git clone https://github.com/SonicCloudOrg/sonic-ios-wda.git
+# 私有仓库：没配 SSH 就用 HTTPS（首次会弹 GitHub 登录）
+git clone git@github.com:felixyang007/matrix-ios-wda.git
+# 或 HTTPS：git clone https://github.com/felixyang007/matrix-ios-wda.git
 ```
 
 2. 修改 **WebDriverAgentLib** 和 **WebDriverAgentRunner** 中的 Signing Team 为自己的开发者账号。
