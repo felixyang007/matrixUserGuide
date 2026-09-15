@@ -8,151 +8,253 @@ contributors:
 
 # Agent 端部署
 
-本文将介绍如何部署 Agent 端。
+本文介绍如何部署 Matrix 的 Agent 端。Agent 是跑在「插着测试手机的那台电脑」上的绿色软件，装好并连上服务器后，团队就能在网页上远程控制真机、跑自动化测试。
+
+> 团队发布页：[github.com/felixyang007/matrix-agent/releases](https://github.com/felixyang007/matrix-agent/releases)（需要团队 GitHub 权限）
+> 源码仓库：[github.com/felixyang007/matrix-agent](https://github.com/felixyang007/matrix-agent)
 
 ::: tip 注意
-谨记一个主机只能部署一个 Agent 端，每个 Agent 的 Key 不能重复使用，多台设备可接入同一 Agent。
-
-为了能正常使用，请保持与server版本一致。
-
-考虑到远控时带宽消耗以及数据传输速度等场景，建议 Agent 优先使用有线网络环境而不是无线网络。
+- 一台电脑只能部署一个 Agent；每个 Agent 的 Key 不能重复使用。
+- 多台设备可接入同一个 Agent。
+- 请保持 Agent 版本与 Server 版本一致。
+- 远控/投屏带宽较大，建议 Agent 使用有线网络。
 :::
 
-## jar 方式部署
+## 开始前：准备 4 样东西
 
-该方式将以本地 jar 包部署 Agent 端、Appium 等等环境。
+1. 一台 **Mac 或 Linux** 电脑（会一直开着、插着测试手机的那台）。
+2. **测试手机 + 数据线**（Android 真机，建议好线直插，别用扩展坞）。
+3. **服务器地址**（形如 `10.2.3.9:3000`，找管理员要，就是平时打开测试平台的网址）。
+4. **Agent Key**（管理员在平台「设备中心 → Agent 中心 → 新增」里生成的钥匙）。
 
-1. **最低启动要求为JDK17**，可以前往 [这里](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html) 安装下载。
-2. 从部署好的前端界面【设备中心】的【Agent 中心】新增 Agent，记录 Agent 的 Key。
-::: tip
-从`v2.5.3`起，为降低用户部署成本，Agent在`plugins`文件夹下内置adb。
+> 无需管理员密码、无需装数据库——Agent 解压即用。
 
-但是已知多个adb-server同时工作会出现抢占问题，因此如果你本地有其他adb-server正在工作，希望用自己已有的adb 或 版本低于v2.5.3时，需要加上这两步：
- 1. 将安卓 SDK 设置到系统环境变量，命名为 ANDROID_HOME。打开 SDKManager，下载 **platform-tools**。确保 platform-tools 目录存在，adb 指令可用。
- 2. 将 ANDROID_HOME、ANDROID_HOME/platform-tools 添加到系统 PATH 中。
-::: 
+## 步骤 1：安装 Java 17
 
-3. 选择 **PC 对应的平台 zip** 下载并解压到任意目录（标记为 **工作目录** ，**如以下加速链接失效**，请自行前往 <a href="https://github.com/SonicCloudOrg/sonic-agent/releases" target="_blank">这里</a> 下载）
-
-::: info Linux
-
-👉 <a href="https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/sonic-agent-v2.6.4-linux_x86.zip" target="_blank">sonic-agent-v2.6.4-linux_x86.zip</a>
-
-👉 <a href="https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/sonic-agent-v2.6.4-linux_x86_64.zip" target="_blank">sonic-agent-v2.6.4-linux_x86_64.zip</a>
-
-👉 <a href="https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/sonic-agent-v2.6.4-linux_arm64.zip" target="_blank">sonic-agent-v2.6.4-linux_arm64.zip</a>
-
-:::
-
-::: info Macosx
-
-👉 <a href="https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/sonic-agent-v2.6.4-macosx_x86_64.zip" target="_blank">sonic-agent-v2.6.4-macosx_x86_64.zip</a>
-
-👉 <a href="https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/sonic-agent-v2.6.4-macosx_arm64.zip" target="_blank">sonic-agent-v2.6.4-macosx_arm64.zip</a>
-
-:::
-
-::: info Windows
-
-👉 <a href="https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/sonic-agent-v2.6.4-windows_x86.zip" target="_blank">sonic-agent-v2.6.4-windows_x86.zip</a>
-
-👉 <a href="https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/sonic-agent-v2.6.4-windows_x86_64.zip" target="_blank">sonic-agent-v2.6.4-windows_x86_64.zip</a>
-
-:::
-
-4. 赋予 **工作目录** 所有权限，然后确保解压后的 mini、config、plugins 文件夹与 jar 同级
+打开终端，先看本机 Java 版本：
 
 ```bash
-$ sudo chmod -R 777 xxxxx
+java -version
 ```
 
-5. 修改 config 文件夹中 **application-sonic-agent.yml** 的配置信息，保存。
-6. 在 **工作目录** 路径下执行以下指令。
-
-::: tip
-1. 如果你是 `Windows` 用户，请先在控制台输入 `chcp 65001` 并回车，再输入以下指令
-
-此外，如需使用Python自定义脚本功能，还请 **再** 输入 `set PYTHONIOENCODING=UTF-8` 并回车，以避免Python脚本输出内容乱码
-
-2. 如果你是 `Macosx` 用户，请查看下方常见问题Q1进行配置后再继续执行下方指令
-:::
+输出显示 `17.x.x` 或更高即可，直接跳到步骤 2。没有的话用 Homebrew 安装：
 
 ```bash
-java -Dfile.encoding=utf-8 -jar sonic-agent-xxxx.jar
+# macOS
+brew install openjdk@17
+sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk
 ```
 
-7. 部署完毕！可以前往设备接入文档（设备请竖直放置或平摊放置，左右旋转放置有可能影响坐标定位）。
+> Linux 请用对应发行版方式安装 OpenJDK 17（如 `sudo apt install openjdk-17-jdk`）。
 
-## Docker 部署
+## 步骤 2：下载 Agent 包并解压
 
-::: danger 警告
-Docker部署仅 Ubuntu 可用！仅 Ubuntu 可用！仅 Ubuntu 可用！
-
-非Ubuntu系统请使用上方 **jar方式部署**！
-:::
-
-该方式将一次性部署 Agent 端以及所需环境。
-
-准备工作：Docker，Matrix 前后端部署完毕
-
-1. 从部署好的前端界面【设备中心】的【Agent 中心】新增 Agent，记录 Agent 的 Key。
-2. [点击这里](https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/docker-compose.yml) 下载最新的docker-compose.yml，参考注释修改里面的内容。（如加速链接失效，请自行前往 <a href="https://github.com/SonicCloudOrg/sonic-agent/releases" target="_black">这里</a> 下载）
-3. 执行以下指令（自行根据提示更改参数）。
+先确认芯片类型：
 
 ```bash
-docker-compose up -d
+uname -m
 ```
-::: tip 如果您为中国大陆用户，出现访问DockerHub较慢的情况，可以从以下两点选择一个进行操作：
-- 配置国内加速镜像源（推荐）
-- <a href="https://ghproxy.com/https://github.com/SonicCloudOrg/sonic-agent/releases/download/v2.6.4/docker-compose-zh.yml" target="_blank">点击这里</a> 下载docker-compose-zh.yml后执行以下指令直接使用加速镜像（不推荐，加速源可能出现不稳定或网络波动，后续down的时候需要docker-compose -f docker-compose-zh.yml down）
-```bash
-docker-compose -f docker-compose-zh.yml up -d
+
+- `arm64` → Apple 芯片（M1/M2/M3/M4）
+- `x86_64` → Intel 芯片
+
+到团队发布页下载对应平台的 zip：
+
+👉 [github.com/felixyang007/matrix-agent/releases](https://github.com/felixyang007/matrix-agent/releases)
+
+- Apple 芯片选 `*macosx_arm64.zip`
+- Intel 芯片选 `*macosx_x86_64.zip`
+- Linux 选 `*linux_x86_64.zip`
+
+解压后目录应包含这几样：
+
+```text
+sonic-agent-macosx-arm64.jar   config/   plugins/   mini/
 ```
+
+> 本发布包已内置：adb 37.0.1、uiautomator2-server 10.6.2、Android 14+ 投屏补丁、scrcpy 1.23-patched 等。后文统称该目录为「工作目录」（如 `~/matrix-agent`）。
+
+## 步骤 3：填写配置
+
+编辑工作目录下的 `config/application-sonic-agent.yml`：
+
+```yaml
+sonic:
+  agent:
+    # 只自己浏览器看设备就填 127.0.0.1（最稳，不受换 IP 影响）；
+    # 团队其他人也要看画面则填本机局域网 IP（ipconfig getifaddr en0 / ip addr）
+    host: 127.0.0.1
+    # Agent 投屏服务端口，一般不改
+    port: 7777
+    # 前端「Agent 中心」新增 Agent 时生成的 Key
+    key: <你的 Agent Key>
+  server:
+    # 服务器 IP（管理员给的）
+    host: 10.2.3.9
+    # 服务器端口（默认 3000）
+    port: 3000
+
+# 未来会迁移到 server 配置；目前仍放这里
+modules:
+  ios:
+    # WDA 的 bundleId（无 .xctrunner 后缀会自动补全）
+    wda-bundle-id: com.sonic.WebDriverAgentRunner
+    # WDA 的 xcode 工程路径（macOS 真机/模拟器需要）
+    wda-xcode-project-path: ~/matrix-ios-wda/WebDriverAgent.xcodeproj
+    # Xcode 模拟器模块（仅 macOS，需已装 Xcode）
+    simulator:
+      enabled: false
+      poll-interval-seconds: 10
+      fresh-instance-per-task: false
+```
+
+::: tip host 怎么填（最高频）
+- **只有你自己在这台机器的浏览器看设备** → 填 `127.0.0.1`（强烈推荐：机器换 IP 永远有效，零维护）。
+- **团队任何人都要看** → 填本机局域网 IP，并在路由器给这台机器做 DHCP 保留（固定 IP），否则机器换 IP 后投屏会失效。
 :::
-4. 部署完毕！可以前往设备接入文档。
-5. (附) 如果您对Docker不熟悉，更推荐使用jar方式部署。
+
+## 步骤 4：启动 Agent
+
+```bash
+cd ~/matrix-agent
+nohup java -Dfile.encoding=utf-8 -Dspring.profiles.active=sonic-agent \
+  -jar sonic-agent-*.jar > agent.log 2>&1 & disown
+```
+
+等 10 秒左右验证（两条都出现 = 成功）：
+
+```bash
+grep -E "server auth successful|Enable Android Module" agent.log
+```
+
+然后打开平台网页「设备中心 → Agent 中心」，对应 agent 应为**在线**状态。
+
+## 步骤 5：接上手机
+
+1. 手机：设置 → 关于手机 → 连点「版本号」7 次打开开发者模式 → 开发者选项 → 打开「USB 调试」。
+2. 数据线连手机与电脑，手机弹「允许 USB 调试」时勾选**一律允许**。
+3. 验证：
+
+```bash
+~/matrix-agent/plugins/adb devices -l
+```
+
+看到状态为 `device` 即认到了（`unauthorized` 表示没点授权）。等十几秒，平台「设备中心」里手机即变**在线**，点「远程控制」即可操作。
+
+> Android 模拟器（Android Studio）开起来等同真机，自动识别；iOS 模拟器见下一节。
+
+## 进阶：接入 iOS 模拟器（Xcode Simulator）
+
+不想插 iPhone 真机时，Mac 上 Xcode 自带的模拟器也能跑 iOS 自动化（冒烟/快速回归）。前提：**Apple 芯片 Mac + 已装 Xcode（含至少一个 iOS 模拟器 runtime）**。
+
+### 第 1 步：起一个模拟器
+
+```bash
+xcodebuild -version
+xcrun simctl list devices
+```
+
+没有想要的机型就新建并启动：
+
+```bash
+xcrun simctl create "Matrix-iOS-1" "com.apple.CoreSimulator.SimDeviceType.iPhone-15-Pro" iOS-18.0
+# ↑ 输出一串 udid
+xcrun simctl boot "<上面输出的 udid>"
+```
+
+### 第 2 步：准备 WDA（WebDriverAgent）工程
+
+模拟器跑自动化需要 WDA。先克隆我们维护的仓库：
+
+```bash
+cd ~ && git clone git@github.com:felixyang007/matrix-ios-wda.git
+# 克隆后工程路径 = ~/matrix-ios-wda/WebDriverAgent.xcodeproj
+```
+
+> 这是私有仓库。SSH 没配好就用 `https://github.com/felixyang007/matrix-ios-wda.git`（首次会弹 GitHub 登录）。都没权限就让管理员把 `matrix-ios-wda` 目录打包发你，解压到 `~/` 即可。
+
+### 第 3 步：让 Agent 认识模拟器 + WDA
+
+往配置文件追加：
+
+```yaml
+modules:
+  ios:
+    wda-xcode-project-path: ~/matrix-ios-wda/WebDriverAgent.xcodeproj
+    simulator:
+      enabled: true
+      poll-interval-seconds: 10
+      fresh-instance-per-task: false
+```
+
+### 第 4 步：重启 Agent 并确认
+
+```bash
+cd ~/matrix-agent
+pkill -f "sonic-agent-.*\.jar"; sleep 2
+nohup java -Dfile.encoding=utf-8 -Dspring.profiles.active=sonic-agent -jar sonic-agent-*.jar > agent.log 2>&1 & disown
+sleep 10 && grep -E "Enable iOS Simulator module|server auth successful" agent.log
+```
+
+出现 `Enable iOS Simulator module` 即模拟器模块已加载，平台「设备中心」会出现带「模拟器」小标的 iOS 设备。
+
+> 模拟器只能装 **simulator 构建的包**（真机 arm64 IPA 装不进去）；支付/推送/生物识别/风控类用例在模拟器上行为不可信，请走真机。
 
 ## 常见问题（Q&A）
 
-Q1: Mac上部署有什么注意的吗？
+**Q1：Agent 连不上服务器（grep 没有 server auth successful）？**
 
-A1: 需要信任Matrix的来源，不然部分插件无法正常启动。
-1. 终端输入
+1. 最常见是 **Agent Key 填错**：核对 yml 里的 key 与网页「Agent 中心」显示完全一致（复制粘贴，别手敲）。
+2. **服务器地址不通**：浏览器打开 `http://服务器地址` 能进平台吗？不能 → 找管理员。
+3. **重复启动**：一台机器只能一个 agent。`pgrep -fl sonic-agent` 应只有一个 java 进程。
+
+**Q2：设备详情转圈 / 远程控制连不上画面？**
+
+最常见是机器换过 IP：`ipconfig getifaddr en0`（Mac）与 yml 里 `agent.host` 不一致 → 改成当前 IP，或干脆填 `127.0.0.1`（只自己看），再重启 agent。
+
+**Q3：投屏黑屏（页面能开）？**
+
+Android 14+ 需要投屏补丁。新 agent 包已内置修复；老包跑补丁脚本：
+
+```bash
+tools/android14-scrcpy-fix/patch-agent-scrcpy.sh ~/matrix-agent --restart
 ```
-sudo spctl --master-disable
+
+**Q4：手机反复上线/掉线？**
+
+1. 先查数据线（最高频）：换好线、直插、不走扩展坞。
+2. 再查 adb 打架：系统另有版本不同的 adb 会互相踢下线，统一到 agent 自带版本；彻底方案是跑团队的 adb 升级脚本统一到 37.0.1。
+
+**Q5：macOS 提示「无法验证开发者 / 已阻止使用」？**
+
+「系统设置 → 隐私与安全性」对被拦项目点「仍要打开」即可，不要全局关闭 Gatekeeper。
+
+**Q6：Mac 上启动有插件安全弹窗？**
+
+同上，在「隐私与安全性」里对被拦项放行；也可 `sudo spctl --master-disable`（不推荐长期关闭）。
+
+## 日常维护（3 招）
+
+**重启 Agent（解决 80% 问题）**
+
+```bash
+cd ~/matrix-agent
+pkill -f "sonic-agent-.*\.jar"; sleep 2
+nohup java -Dfile.encoding=utf-8 -Dspring.profiles.active=sonic-agent -jar sonic-agent-*.jar > agent.log 2>&1 & disown
+sleep 10 && grep "server auth successful" agent.log
 ```
-2. 【安全性与隐私】将任何来源权限放开。
-![eve](./images/eve.jpg)
+
+**看日志**
+
+```bash
+tail -100 ~/matrix-agent/agent.log          # 最近 100 行
+grep -i error ~/matrix-agent/agent.log      # 只看报错
+```
+
+**升级 Agent**
+
+管理员发新 zip 后：解压 → 用里面的 `jar`、`plugins/` 覆盖工作目录（`config/` 别覆盖，配置在里面）→ 重启。或直接换完整新目录，重做第 3 步配置。
 
 ---
 
-Q2: 明明配置好了 ANDROID_HOME，并且 adb 可用，为什么还是检测不到 ANDROID_HOME？
-
-A2: 需要配置好 ANDROID_HOME 之后，PATH 里面也需要配置好。确认 `echo %ANDROID_HOME%` (win) 或 `echo $ANDROID_HOME` (mac 或 linux) 输出正确。
-
----
-
-Q3: 查看日志发现与 Server 没有连上，该怎么解决？
-
-A3: 主要分为多种情况:
-
-1. Key 配置不正确，一个 Key 只能一个 Agent 使用。
-2. 所有 ip 不能使用 localhost、127.0.0.1 之类的配置。
-
----
-
-Q4: 查看日志发现时区不对，宿主机的时区没有问题，该怎么解决？
-
-A4: 可以参考 [这个帖子](https://sonic-cloud.wiki/d/2297)
-
----
-
-Q5: Mac上启动会有sonic-android-supply或其他插件安全弹窗？
-
-A5: 建议还是按照上方Q1的解答解决最佳，除此之外可以这样解决 Mac：系统偏好设置 -> 安全性与隐私 -> 通用，点击信任或仍要打开。
-
----
-
-::: tip
-更多疑问可前往 👉[社区](https://discord.gg/c9ZD6jSyTE)👈 交流
-:::
+> Matrix 云真机平台 · Agent 部署指南 · 基于 sonic-agent v2.7.2 + Matrix 定制（adb 37.0.1 / uiautomator2 10.6.2 / scrcpy 1.23-patched）

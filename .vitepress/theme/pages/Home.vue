@@ -35,9 +35,7 @@
         </el-button>
       </div>
 
-      <!-- 脚标 -->
-      <h5 class="footmark">Made with 🧡 by Plaud Matrix团队</h5>
-    </div>
+      </div>
     <div class="hero__right">
       <video width="800" controls :src="demo"/>
     </div>
