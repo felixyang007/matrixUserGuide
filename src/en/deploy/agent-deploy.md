@@ -140,22 +140,26 @@ Status `device` means it is recognized (`unauthorized` means the prompt was miss
 
 ## Advanced: attach an iOS simulator (Xcode Simulator)
 
-When you don't have an iPhone plugged in, Xcode's simulator can run iOS automation (smoke / fast regression). Requirement: **Apple Silicon Mac + Xcode installed (with at least one iOS simulator runtime)**.
+When you don't have an iPhone plugged in, Xcode's simulator can run iOS automation (ideal for smoke / fast regression). The simulator enters the device pool as an "iOS + simulator flag" device, and works just like a real device for viewing, installing and running tests.
 
-### 1) Boot a simulator
+> Requirements: **Apple Silicon Mac** + **Xcode 26.x** + at least one iOS simulator runtime (no developer account / USB needed).
+
+### 1) Create and boot simulators (you can open several)
 
 ```bash
-xcodebuild -version
-xcrun simctl list devices
+xcodebuild -version                # confirm Xcode
+xcrun simctl list devices          # list available simulators (runtime + model)
 ```
 
-Create and boot one if needed:
+Create and boot one if needed (**only booted simulators are reported by the Agent**):
 
 ```bash
 xcrun simctl create "Matrix-iOS-1" "com.apple.CoreSimulator.SimDeviceType.iPhone-15-Pro" iOS-18.0
 # ↑ outputs a udid
 xcrun simctl boot "<the udid above>"
 ```
+
+> 4–6 simulators per M-series Mac is a good static pool size; each simulator gets its own WDA port, so they don't conflict.
 
 ### 2) Prepare the WDA (WebDriverAgent) project
 
@@ -164,21 +168,31 @@ cd ~ && git clone git@github.com:felixyang007/matrix-ios-wda.git
 # project path = ~/matrix-ios-wda/WebDriverAgent.xcodeproj
 ```
 
-> This is a private repo. Use `https://github.com/felixyang007/matrix-ios-wda.git` if SSH is not configured. If you have no access at all, ask an admin for a packed copy and unzip it to `~/`.
+> The WDA fork has been upgraded to appium **16.12.8** (Xcode 26 ready). It's a private repo — use `https://github.com/felixyang007/matrix-ios-wda.git` if SSH isn't configured, or ask an admin for a packed copy and unzip it to `~/`.
+>
+> On the first test run the Agent builds WDA once via `build-for-testing` (about 1–2 min), then reuses the cache.
 
-### 3) Let the Agent discover the simulator + WDA
+### 3) Configure the simulator module
 
-Append to the config:
+Append to `config/application-sonic-agent.yml`:
 
 ```yaml
 modules:
   ios:
     wda-xcode-project-path: ~/matrix-ios-wda/WebDriverAgent.xcodeproj
     simulator:
-      enabled: true
-      poll-interval-seconds: 10
-      fresh-instance-per-task: false
+      enabled: true                  # enable simulator discovery & reporting (default false)
+      poll-interval-seconds: 10      # simctl list polling interval in seconds
+      fresh-instance-per-task: false # erase simulator to factory state before each task
 ```
+
+| Key | Meaning | Advice |
+|---|---|---|
+| `enabled` | Toggle simulator discovery & reporting | set `true` to attach simulators |
+| `poll-interval-seconds` | How often `simctl list` is polled | keep `10` |
+| `fresh-instance-per-task` | Auto `shutdown → erase → boot` the simulator before each run (keeps the same udId) | **start with `false`**, enable later when you need a clean environment; erase clears apps & data |
+
+> If step 4 reports "WDA project not found", replace `wda-xcode-project-path` with an absolute path: run `cd ~/matrix-ios-wda && pwd` and use the output (e.g. `/Users/tom/matrix-ios-wda/WebDriverAgent.xcodeproj`).
 
 ### 4) Restart and confirm
 
@@ -189,9 +203,34 @@ nohup java -Dfile.encoding=utf-8 -Dspring.profiles.active=sonic-agent -jar sonic
 sleep 10 && grep -E "Enable iOS Simulator module|server auth successful" agent.log
 ```
 
-`Enable iOS Simulator module` means the simulator module is loaded; the simulator appears in Device Center with a "simulator" badge.
+`Enable iOS Simulator module` means the simulator module is loaded; after one polling cycle (~10s) the simulator appears in Device Center with a "simulator" badge.
 
-> The simulator can only install **simulator builds** (real-device arm64 IPAs won't install); payment / push / biometrics / risk-control cases behave unreliably on the simulator — use a real device.
+### What you can do once attached
+
+| Capability | Notes |
+|---|---|
+| Live view | WDA MJPEG (9100); the simulator binds to localhost directly — **no iproxy/USB needed** |
+| Install / launch / terminate apps | via `simctl`, same UI entry points as real devices |
+| Run automation | identical to a real device — just select the simulator |
+| System log | terminal page uses `simctl log stream` |
+| Mock location | via `simctl location set` |
+| Fresh instance per task | with `fresh-instance-per-task`, auto `shutdown → erase → boot` before each run |
+
+### Known limitations
+
+- **Simulator builds only**: real-device arm64 IPAs won't install; use simulator build artifacts.
+- **perfmon**: not supported on simulators yet.
+- **WebView debugging**: `sib webinspector` has no simctl equivalent yet.
+- **Terminal process list**: `sib ps` equivalent not implemented yet.
+- Payment / push / biometrics / risk-control cases behave unreliably on simulators — use a real device.
+
+### First smoke test
+
+1. The simulator card shows in Device Center: with a "simulator" badge, ONLINE, correct resolution (e.g. `1206x2622`).
+2. Click "Remote Control": see the screen, tap/swipe works, terminal shows logs.
+3. Upload a **simulator build**, install and launch it.
+4. Create an iOS test case, select the simulator, run it, check the report.
+5. Enable `fresh-instance-per-task: true`, run again, observe the simulator is erased (apps/data cleared) yet stays online.
 
 ## FAQ
 

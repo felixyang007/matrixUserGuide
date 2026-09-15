@@ -145,16 +145,18 @@ grep -E "server auth successful|Enable Android Module" agent.log
 
 ## 进阶：接入 iOS 模拟器（Xcode Simulator）
 
-不想插 iPhone 真机时，Mac 上 Xcode 自带的模拟器也能跑 iOS 自动化（冒烟/快速回归）。前提：**Apple 芯片 Mac + 已装 Xcode（含至少一个 iOS 模拟器 runtime）**。
+不想插 iPhone 真机时，Mac 上 Xcode 自带的模拟器也能跑 iOS 自动化（适合冒烟 / 快速回归）。模拟器会以「iOS + 模拟器标记」进入设备池，和真机一样远程看屏、装 App、跑用例。
 
-### 第 1 步：起一个模拟器
+> 前置条件：**Apple 芯片 Mac** + **Xcode 26.x** + 至少一个 iOS 模拟器 runtime（无需开发者账号，也无需 USB 连接）。
+
+### 第 1 步：创建并启动模拟器（可一次开多个）
 
 ```bash
-xcodebuild -version
-xcrun simctl list devices
+xcodebuild -version                # 确认 Xcode 已装
+xcrun simctl list devices          # 看本机有哪些模拟器（runtime + 型号）
 ```
 
-没有想要的机型就新建并启动：
+没有想要的机型就新建并 boot（**只有 boot 状态的模拟器才会被 agent 上报**）：
 
 ```bash
 xcrun simctl create "Matrix-iOS-1" "com.apple.CoreSimulator.SimDeviceType.iPhone-15-Pro" iOS-18.0
@@ -162,9 +164,11 @@ xcrun simctl create "Matrix-iOS-1" "com.apple.CoreSimulator.SimDeviceType.iPhone
 xcrun simctl boot "<上面输出的 udid>"
 ```
 
+> 一台 M 系 Mac 建议常开 **4–6 个**模拟器组成静态池；多个模拟器各自会有独立的 WDA 端口，互不冲突。
+
 ### 第 2 步：准备 WDA（WebDriverAgent）工程
 
-模拟器跑自动化需要 WDA。先克隆我们维护的仓库：
+模拟器跑自动化要经过 WDA。先克隆我们维护的仓库（已升级到 appium **16.12.8**，适配 Xcode 26）：
 
 ```bash
 cd ~ && git clone git@github.com:felixyang007/matrix-ios-wda.git
@@ -172,20 +176,30 @@ cd ~ && git clone git@github.com:felixyang007/matrix-ios-wda.git
 ```
 
 > 这是私有仓库。SSH 没配好就用 `https://github.com/felixyang007/matrix-ios-wda.git`（首次会弹 GitHub 登录）。都没权限就让管理员把 `matrix-ios-wda` 目录打包发你，解压到 `~/` 即可。
+>
+> 首次跑用例时 Agent 会自动 **build-for-testing 编译一次 WDA**（约 1–2 分钟），之后复用缓存。
 
-### 第 3 步：让 Agent 认识模拟器 + WDA
+### 第 3 步：配置模拟器模块
 
-往配置文件追加：
+往 `config/application-sonic-agent.yml` 追加：
 
 ```yaml
 modules:
   ios:
     wda-xcode-project-path: ~/matrix-ios-wda/WebDriverAgent.xcodeproj
     simulator:
-      enabled: true
-      poll-interval-seconds: 10
-      fresh-instance-per-task: false
+      enabled: true                  # 打开模拟器发现与上报（默认 false）
+      poll-interval-seconds: 10      # simctl list 轮询间隔（秒）
+      fresh-instance-per-task: false # 每任务前是否把模拟器擦除回出厂态
 ```
+
+| 参数 | 含义 | 建议 |
+|---|---|---|
+| `enabled` | 是否启用模拟器发现与上报 | 接模拟器时设为 `true` |
+| `poll-interval-seconds` | 轮询 `simctl list` 发现/刷新模拟器的间隔 | 默认 `10` 即可 |
+| `fresh-instance-per-task` | 每次跑测试前自动 `shutdown → erase → boot` 把模拟器清回出厂态（udId 不变） | **先设 `false` 跑通，需要干净环境再开 `true`**；erase 会清掉 App 与数据 |
+
+> ⚠️ 若第 4 步报「找不到 WDA 工程」，把 `wda-xcode-project-path` 换成**完整绝对路径**：先 `cd ~/matrix-ios-wda && pwd`，用输出的路径（如 `/Users/tom/matrix-ios-wda/WebDriverAgent.xcodeproj`）替换 `~/...`。
 
 ### 第 4 步：重启 Agent 并确认
 
@@ -196,9 +210,34 @@ nohup java -Dfile.encoding=utf-8 -Dspring.profiles.active=sonic-agent -jar sonic
 sleep 10 && grep -E "Enable iOS Simulator module|server auth successful" agent.log
 ```
 
-出现 `Enable iOS Simulator module` 即模拟器模块已加载，平台「设备中心」会出现带「模拟器」小标的 iOS 设备。
+出现 `Enable iOS Simulator module` 即模拟器模块已加载；等一个轮询周期（默认 10 秒）后，平台「设备中心」会出现带「模拟器」小标的 iOS 设备。
 
-> 模拟器只能装 **simulator 构建的包**（真机 arm64 IPA 装不进去）；支付/推送/生物识别/风控类用例在模拟器上行为不可信，请走真机。
+### 接入后能做什么（能力清单）
+
+| 能力 | 说明 |
+|---|---|
+| 远程看屏 | WDA MJPEG（9100）；模拟器直接 bind 本机 localhost，**无需 iproxy/USB** |
+| 装 App / 起停 App | 通过 `simctl install/launch/terminate`，与真机操作入口一致 |
+| 跑自动化用例 | 与真机流程完全一样，选中这台模拟器下发即可 |
+| 系统日志 | 终端页走 `simctl log stream` |
+| 模拟定位 | 走 `simctl location set` |
+| 每任务全新实例 | 开 `fresh-instance-per-task` 后，测试前自动 `shutdown → erase → boot` |
+
+### 已知限制
+
+- **只能装 simulator 构建的包**：真机 arm64 IPA 无法在模拟器安装，需用 simulator 构建产物。
+- **性能采集（perfmon）**：尚未支持模拟器。
+- **WebView 调试**：`sib webinspector` 无 simctl 等价物，暂不支持。
+- **终端进程列表**：`sib ps` 对应的 simctl 等价物暂未实现。
+- 支付 / 推送 / 生物识别 / 风控类用例在模拟器上**行为不可信**，请走真机。
+
+### 第一条冒烟验证
+
+1. 「设备中心」出现该模拟器卡片：带「模拟器」小标、状态 ONLINE、分辨率正确（如 `1206x2622`）。
+2. 点「远程控制」：能看到画面、能 tap/swipe、终端页有日志输出。
+3. 上传一个 **simulator 包** 安装并 launch。
+4. 新建 iOS 用例选中该模拟器下发，跑完看报告。
+5. 开 `fresh-instance-per-task: true` 再跑一条，观察模拟器被 erase（App/数据清空）后仍在线。
 
 ## 常见问题（Q&A）
 
