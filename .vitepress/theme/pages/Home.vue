@@ -21,7 +21,7 @@
           type="primary"
           size="large"
           round
-          @click="router.go('/deploy/back-end-deploy')"
+          @click="router.go(withBase('/deploy/back-end-deploy'))"
         >
           马上使用
         </el-button>
@@ -262,7 +262,7 @@ import team7 from '../assets/team7.png'
 import team8 from '../assets/docker.png'
 // 价值与产出
 import msg from '../assets/msg.png'
-import {useRouter} from 'vitepress'
+import {useRouter, withBase} from 'vitepress'
 
 // 支持设备
 const devices = [
