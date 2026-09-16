@@ -231,6 +231,34 @@ const cons: Cons = [
 
 export default [
   {
+    version: "v2.7.7",
+    time: "2026/9/16",
+    des: "修复设备占用锁泄漏。",
+    fix: [
+      {
+        title: "补全设备锁泄漏修复：解决卡在 DEBUGGING 状态、以及跨会话不安全解锁的问题",
+        url: "https://github.com/felixyang007/matrix-agent/commit/984a50d"
+      },
+    ],
+    con: getCon("felixyang007")
+  },
+  {
+    version: "v2.7.6",
+    time: "2026/9/15",
+    des: "修复 WebSocket 设备锁泄漏与 CI。",
+    fix: [
+      {
+        title: "修复 onOpen 早返回导致的设备锁泄漏（Android + iOS）",
+        url: "https://github.com/felixyang007/matrix-agent/commit/c1689db"
+      },
+      {
+        title: "修复 CI：用 github.ref_name 替代 get-previous-tag action",
+        url: "https://github.com/felixyang007/matrix-agent/commit/42c5167"
+      },
+    ],
+    con: getCon("felixyang007")
+  },
+  {
     version: "v2.7.5",
     time: "2026/9/15",
     des: "Matrix 品牌清理。",

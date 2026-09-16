@@ -18,7 +18,7 @@
           <template #title>
             <div>
               更新前一定要查看版本迁移指南哦，可点击
-              <a href="https://felixyang007.github.io/matrixUserGuide/deploy?tag=upgrade" target="_blank">这里</a>
+              <a href="https://felixyang007.github.io/matrixUserGuide/deploy/upgrade-deploy.html" target="_blank">这里</a>
               查看！
             </div>
           </template>
